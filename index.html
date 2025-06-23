@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IBLE BOOM - Chartered Accountants & Advisors</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IBLE BOOM | Chartered Accountants & Business Advisors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     * {
       box-sizing: border-box;
@@ -15,108 +13,176 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background-color: #f4f6fa;
+      background: #f8f9fc;
       color: #1a1a1a;
       line-height: 1.6;
     }
-    header {
-      background-color: #002f6c;
+
+    /* Top Bar */
+    .topbar {
+      background-color: #012a6b;
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 0.4rem 2rem;
+      font-size: 0.9rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
+
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
     header h1 {
       font-size: 1.8rem;
-      font-weight: 700;
+      color: #002f6c;
     }
+
     nav a {
-      color: white;
-      text-decoration: none;
       margin-left: 1.5rem;
+      text-decoration: none;
+      color: #002f6c;
       font-weight: 600;
     }
+
     nav a:hover {
-      color: #ffc107;
+      color: #f0ad00;
     }
+
+    .btn-yellow {
+      background-color: #f0ad00;
+      color: black;
+      padding: 0.5rem 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     .hero {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 3rem 2rem;
-      background: linear-gradient(to right, #002f6c, #4285f4);
+      background: linear-gradient(to right, #002f6c, #467fd0);
       color: white;
+      flex-wrap: wrap;
     }
+
     .hero-text {
       max-width: 600px;
     }
+
     .hero-text h2 {
       font-size: 2.5rem;
-      font-weight: 700;
+      margin-bottom: 1rem;
     }
+
     .highlight {
-      color: #ffc107;
+      color: #f0ad00;
     }
-    .btn {
-      background: #ffc107;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 4px;
-      margin-top: 1rem;
-      cursor: pointer;
-      color: black;
-    }
+
     .section {
       padding: 3rem 2rem;
       background-color: #fff;
     }
+
     .section h3 {
       color: #002f6c;
-      margin-bottom: 1.2rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
+
     .card {
       background: #f9f9f9;
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.3s;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
     footer {
-      background-color: #001f3f;
+      background-color: #002f6c;
       color: white;
-      padding: 1.5rem 2rem;
+      padding: 2rem;
       text-align: center;
+    }
+
+    .tagline-bar {
+      background: #002f6c;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-left: 5px solid #f0ad00;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .testimonial strong {
+      color: #002f6c;
     }
   </style>
 </head>
 <body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div>
+      📞 +91 9015129625 &nbsp; | &nbsp; 📧 ibleboom@gmail.com
+    </div>
+    <div>
+      MSME | DPIIT | Startup India Certified
+    </div>
+  </div>
+
+  <!-- Header -->
   <header>
     <h1>IBLE BOOM</h1>
     <nav>
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
-      <a href="#testimonials">Clients</a>
+      <a href="#clients">Clients</a>
       <a href="#contact">Contact</a>
+      <button class="btn-yellow">Get Free Consultation</button>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
       <h2>Your Trusted <span class="highlight">CA Partners</span> in India</h2>
       <p>Comprehensive accounting, taxation, and business advisory services for individuals and enterprises. Expert guidance for GST, Income Tax, Company Registration, and Financial Planning.</p>
-      <button class="btn">Start Your Consultation</button>
+      <br />
+      <button class="btn-yellow">Start Your Consultation</button>
     </div>
+    <!-- Optional image/graphic can be placed here -->
   </section>
 
+  <!-- Services -->
   <section class="section" id="services">
     <h3>Comprehensive CA Services</h3>
     <div class="grid">
@@ -159,16 +225,31 @@
     </div>
   </section>
 
+  <!-- Why Choose Us -->
   <section class="section" id="why">
     <h3>Why Choose IBLE BOOM?</h3>
     <div class="grid">
-      <div class="card">MSME Registered</div>
-      <div class="card">Startup India Certified</div>
-      <div class="card">DPIIT Recognised</div>
-      <div class="card">200+ Happy Clients in 1 Year</div>
+      <div class="card">✅ 1 Year in Service</div>
+      <div class="card">✅ 200+ Happy Clients</div>
+      <div class="card">✅ MSME & DPIIT Recognised</div>
+      <div class="card">✅ Registered under Startup India</div>
     </div>
   </section>
 
+  <!-- Testimonials -->
+  <section class="section" id="clients">
+    <h3>What Our Clients Say</h3>
+    <div class="testimonial">
+      <p>“IBLE BOOM’s expert advice and prompt service helped me get my business registered smoothly. Their team is extremely knowledgeable.”</p>
+      <strong>– A Happy Client</strong>
+    </div>
+    <div class="testimonial">
+      <p>“The tax planning services offered by IBLE BOOM helped me save a significant amount. Highly recommended!”</p>
+      <strong>– Small Business Owner</strong>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section class="section" id="contact">
     <h3>Contact Us</h3>
     <p><strong>Email:</strong> ibleboom@gmail.com</p>
@@ -181,3 +262,4 @@
   </footer>
 </body>
 </html>
+
