@@ -1,122 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBLE BOOM SERVICES PVT LTD</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBLE BOOM - Chartered Accountants & Advisors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6fa;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      color: #222;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
-
+    body {
+      background-color: #f4f6fa;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
     header {
       background-color: #002f6c;
       color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header span {
-      color: #ffc107;
-    }
-
-    nav {
-      background-color: #001f3f;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      padding: 10px 0;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
-
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
+      margin-left: 1.5rem;
+      font-weight: 600;
     }
-
     nav a:hover {
       color: #ffc107;
     }
-
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(to right, #002f6c, #4285f4);
+      color: white;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .highlight {
+      color: #ffc107;
+    }
+    .btn {
+      background: #ffc107;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      margin-top: 1rem;
+      cursor: pointer;
+      color: black;
+    }
     .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+      padding: 3rem 2rem;
+      background-color: #fff;
     }
-
-    .about, .contact, .certifications {
-      background-color: white;
-      margin-bottom: 20px;
-      border-left: 6px solid #002f6c;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-
-    .about h2, .contact h2, .certifications h2 {
+    .section h3 {
       color: #002f6c;
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
     }
-
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
     footer {
-      text-align: center;
       background-color: #001f3f;
       color: white;
-      padding: 15px 0;
-    }
-
-    .highlight {
-      color: #d32f2f;
-      font-weight: bold;
+      padding: 1.5rem 2rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1><span>IBLE BOOM</span> SERVICES PVT LTD</h1>
-    <p>Professional | Reliable | Trusted</p>
+    <h1>IBLE BOOM</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#about">About Us</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="section about" id="about">
-    <h2>About Us</h2>
-    <p>IBLE BOOM SERVICES PVT LTD is a Chartered Accountancy support company with a strong reputation for professionalism, trustworthiness, and reliability. Founded just a year ago, we are proud to have already served approximately <span class="highlight">200 happy clients</span> across various sectors.</p>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Your Trusted <span class="highlight">CA Partners</span> in India</h2>
+      <p>Comprehensive accounting, taxation, and business advisory services for individuals and enterprises. Expert guidance for GST, Income Tax, Company Registration, and Financial Planning.</p>
+      <button class="btn">Start Your Consultation</button>
+    </div>
   </section>
 
-  <section class="section certifications" id="certifications">
-    <h2>Certifications & Recognition</h2>
-    <ul>
-      <li>MSME Registered</li>
-      <li>Startup India Certified</li>
-      <li>DPIIT Recognised</li>
-    </ul>
+  <section class="section" id="services">
+    <h3>Comprehensive CA Services</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>GST Services</h4>
+        <ul>
+          <li>GST Registration</li>
+          <li>Monthly/Quarterly Returns</li>
+          <li>GST Audit</li>
+          <li>Input Tax Credit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Income Tax Services</h4>
+        <ul>
+          <li>ITR Filing</li>
+          <li>Tax Planning</li>
+          <li>TDS Services</li>
+          <li>Tax Assessment</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Company Registration</h4>
+        <ul>
+          <li>Private Limited</li>
+          <li>LLP Formation</li>
+          <li>Sole Proprietorship</li>
+          <li>Partnership</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Financial Planning</h4>
+        <ul>
+          <li>Investment Planning</li>
+          <li>Retirement Planning</li>
+          <li>Tax Optimization</li>
+          <li>Risk Assessment</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section class="section contact" id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Email:</strong> <a href="mailto:ibleboom@gmail.com">ibleboom@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+919015129625">9015129625</a></p>
+  <section class="section" id="why">
+    <h3>Why Choose IBLE BOOM?</h3>
+    <div class="grid">
+      <div class="card">MSME Registered</div>
+      <div class="card">Startup India Certified</div>
+      <div class="card">DPIIT Recognised</div>
+      <div class="card">200+ Happy Clients in 1 Year</div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p><strong>Email:</strong> ibleboom@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9015129625</p>
     <p><strong>Address:</strong> ANDHIYARI, BHAGWARIPUR, ALLAHABAD, Uttar Pradesh, India, 229413</p>
   </section>
 
   <footer>
     &copy; 2025 IBLE BOOM SERVICES PVT LTD. All rights reserved.
   </footer>
-
-  <script>
-    // Optional JavaScript for future interactivity
-    console.log("Welcome to IBLE BOOM!");
-  </script>
 </body>
 </html>
