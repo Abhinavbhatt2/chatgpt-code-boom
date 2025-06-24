@@ -64,13 +64,13 @@ header .container {
 .logo-text span:first-child {
     font-weight: 700;
     font-size: 16px;
-    color: var(--text-dark);
+    color: var(--white);
 }
 
 .logo-text span:last-child {
     font-size: 10px;
     letter-spacing: 1px;
-    color: var(--text-light);
+    color: var(--white);
 }
 
 nav ul {
