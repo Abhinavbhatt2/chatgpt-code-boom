@@ -3,8 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBLE BOOM Header</title>
-    <link rel="stylesheet" href="style.css">
+    <title>iBLE BOOM Header (CSS Only)</title>
+    
+    <style>
+        /* --- General Body and Font Styles --- */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header Styles --- */
+        .site-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Logo Styles --- */
+        .logo {
+            text-decoration: none;
+        }
+
+        .logo-text .company-name {
+            display: block;
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #2d3748; /* Dark gray */
+            line-height: 1.1;
+        }
+
+        .logo-text .company-suffix {
+            display: block;
+            font-size: 0.8em;
+            color: #718096; /* Lighter gray */
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Navigation Styles (Desktop) --- */
+        .main-nav .nav-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 35px; /* Space between navigation items */
+        }
+
+        .main-nav .nav-links a {
+            text-decoration: none;
+            color: #2d3748;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .main-nav .nav-links a:hover {
+            color: #007bff; /* Blue for hover effect */
+        }
+        
+        /* --- Mobile Menu Checkbox & Label (Hidden on Desktop) --- */
+        #menu-toggle-checkbox {
+            display: none; /* Hide the checkbox */
+        }
+
+        .menu-toggle-label {
+            display: none; /* Hide the hamburger label on desktop */
+            font-size: 28px;
+            cursor: pointer;
+            color: #2d3748;
+        }
+
+
+        /* --- Responsive Styles (Mobile View) --- */
+        @media (max-width: 768px) {
+            /* Show the hamburger menu label */
+            .menu-toggle-label {
+                display: block;
+            }
+
+            /* Hide the nav links by default on mobile */
+            .main-nav .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 75px; /* Adjust this value based on your header's height */
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 15px 0;
+                gap: 0;
+            }
+            
+            .main-nav .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* The MAGIC: When the checkbox is checked, show the nav links */
+            #menu-toggle-checkbox:checked ~ .nav-links {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,16 +142,20 @@
 
         <!-- Navigation Section -->
         <nav class="main-nav">
-            <!-- Hamburger button for mobile view -->
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+            <!-- Hidden checkbox to control the menu state -->
+            <input type="checkbox" id="menu-toggle-checkbox">
+
+            <!-- Hamburger label that toggles the checkbox -->
+            <label for="menu-toggle-checkbox" class="menu-toggle-label">
                 ☰ <!-- Hamburger icon -->
-            </button>
+            </label>
             
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <!-- Navigation links -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </div>
