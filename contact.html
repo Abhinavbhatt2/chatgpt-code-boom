@@ -535,17 +535,11 @@
         const submitBtn = document.getElementById('submitBtn');
         const formMessage = document.getElementById('form-message');
 
-        // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
+        // URL has been updated with the one you provided
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUoRDRkfq5m32kPcZIWP0rKSUbhREp5DZsZxQYELtDAq-_oaTwDE4mmYwo0ADCQlQJA/exec'; 
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-
-            if (scriptURL === 'paste url') {
-                formMessage.textContent = 'Error: Please set up the Google Apps Script URL first.';
-                formMessage.style.color = 'red';
-                return;
-            }
 
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
