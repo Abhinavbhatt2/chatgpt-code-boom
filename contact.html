@@ -30,9 +30,8 @@
 
         /* --- MODIFIED HEADER --- */
         .site-header {
-            background-color: #3b5998; /* New background color */
-            padding: 15px 0;
-            border-bottom: 1px solid #e0e0e0;
+            background-color: #3b5998; /* Blue background color */
+            padding: 10px 0; /* Adjusted padding for better alignment */
         }
 
         .header-container {
@@ -41,8 +40,35 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Adds space between image and text */
+            text-decoration: none;
+        }
+
         .logo img {
-            display: block; /* Prevents extra space below the image */
+            display: block;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text strong {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #ffffff; /* White text */
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            font-weight: 500;
+            color: #ffffff; /* White text */
+            text-transform: uppercase;
         }
 
         .main-nav ul {
@@ -53,7 +79,7 @@
 
         .main-nav a {
             text-decoration: none;
-            color: #ffffff; /* New text color */
+            color: #ffffff; /* White navigation text */
             font-weight: 500;
             font-size: 16px;
             padding-bottom: 5px;
@@ -61,8 +87,8 @@
         }
 
         .main-nav a.active {
-            color: #ffffff; /* Active link color */
-            border-bottom: 2px solid #ffffff; /* Active link border */
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
         }
 
         /* Main Content */
@@ -223,7 +249,7 @@
         }
 
 
-        /* --- MODIFIED FOOTER --- */
+        /* Footer */
         .site-footer {
             background-color: #0a192f;
             color: #a8b2d1;
@@ -333,8 +359,11 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <!-- LOGO IMAGE REPLACED HERE -->
-                <img src="logo.png" alt="iBLE BOOM SERVICES PVT LTD Logo" width="200" height="60">
+                <img src="logo.png" alt="Company Logo" width="200" height="60">
+                <div class="logo-text">
+                    <strong>Ible boom services</strong>
+                    <span>PVT LTD</span>
+                </div>
             </a>
             <nav class="main-nav">
                 <ul>
@@ -437,7 +466,6 @@
             <div class="footer-container">
                 <div class="footer-col about">
                     <div class="footer-logo-container">
-                        <!-- LOGO IMAGE REPLACED HERE -->
                         <img src="logo.png" alt="iBLE BOOM SERVICES PVT LTD Logo" width="200" height="60">
                     </div>
                     <p>Your trusted partner for comprehensive CA and financial services.</p>
