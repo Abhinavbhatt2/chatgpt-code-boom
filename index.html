@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBLE BOOM SERVICES PVT LTD</title>
+    <title>iBLE BOOM Header</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="logo.png">
-                <div class="logo-text">
-                    <span>iBLE BOOM PVT LTD</span>
-                    <span>PVT LTD</span>
-                </div>
+<header class="site-header">
+    <div class="container">
+        <!-- Logo Section -->
+        <a href="#" class="logo">
+            <div class="logo-text">
+                <span class="company-name">iBLE BOOM PVT LTD</span>
+                <span class="company-suffix">PVT LTD</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        </a>
 
+        <!-- Navigation Section -->
+        <nav class="main-nav">
+            <!-- Hamburger button for mobile view -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                ☰ <!-- Hamburger icon -->
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
     <main>
         <!-- Hero Section -->
         <section id="hero">
