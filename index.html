@@ -4,100 +4,499 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iBLE BOOM SERVICES PVT LTD</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Styles & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-text span {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: #2545b8;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .certifications {
+            margin-bottom: 40px;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .btn {
+            background-color: #f5b01c;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d99a1a;
+        }
+        
+        /* --- Stats Section --- */
+        .stats-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card .number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .number.blue { color: #2545b8; }
+        .stat-card .number.green { color: #198754; }
+        .stat-card .number.red { color: #dc3545; }
+
+        .stat-card .label {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        /* --- Services Section --- */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            border-left: 4px solid #2545b8;
+        }
+        
+        .service-card-icon {
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            background-color: #2545b8;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #1e293b;
+            color: #adb5bd;
+            padding: 60px 0 0;
+        }
+        
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col.about {
+            flex: 2;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo h2 {
+            color: #fff;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        .footer-col p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-cert-badge {
+            display: inline-block;
+            background-color: #334155;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-item svg {
+            color: #f5b01c;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .copyright {
+            border-top: 1px solid #334155;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 992px) {
+            .stats-grid, .services-grid, .footer-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-card {
+                width: 80%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hiding for mobile, a real site would use a hamburger menu */
+            }
+
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .cta-section h2 { font-size: 28px; }
+            
+            .footer-grid {
+                text-align: center;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+            
+            .footer-logo, .contact-info-item {
+                justify-content: center;
+            }
+
+            .contact-info-item svg {
+                margin-right: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="iBLE BOOM SERVICES Logo">
+            <a href="#" class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100">
+                  <rect x="5" y="5" width="90" height="90" rx="10" ry="10" fill="#8c8273"/>
+                  <text x="50" y="68" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="white" text-anchor="middle">iB</text>
+                </svg>
                 <div class="logo-text">
-                    <span>iBLE BOOM SERVICES</span>
+                    <h1>iBLE BOOM SERVICES</h1>
                     <span>PVT LTD</span>
                 </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Services</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero">
+        <section class="hero">
             <div class="container">
                 <h1>iBLE BOOM SERVICES PVT LTD</h1>
-                <p class="tagline">Your Trusted Partner for Complete CA & Financial Services</p>
+                <p>Your Trusted Partner for Complete CA & Financial Services</p>
                 <div class="certifications">
-                    <span class="cert-pill">MSME Certified</span>
-                    <span class="cert-pill">Startup India Certified</span>
-                    <span class="cert-pill">DPIIT Recognised</span>
+                    <span class="cert-badge">MSME Certified</span>
+                    <span class="cert-badge">Startup India Certified</span>
+                    <span class="cert-badge">DPIT Recognised</span>
                 </div>
-                <a href="#" class="cta-button">Get Expert Consultation</a>
+                <a href="#" class="btn">Get Expert Consultation</a>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section id="stats">
+        <section class="stats-section">
             <div class="container">
-                <div class="stat-card">
-                    <h2 class="stat-number color-blue" data-goal="200">0+</h2>
-                    <p>Happy Clients</p>
-                </div>
-                <div class="stat-card">
-                    <h2 class="stat-number color-green" data-goal="5">0</h2>
-                    <p>Year of Excellence</p>
-                </div>
-                <div class="stat-card">
-                    <h2 class="stat-number color-gold" data-goal="99">0%</h2>
-                    <p>Client Satisfaction</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number blue">200+</div>
+                        <div class="label">Happy Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number green">1</div>
+                        <div class="label">Year of Excellence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number red">100%</div>
+                        <div class="label">Client Satisfaction</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services">
+        <section class="services-section">
             <div class="container">
-                <h2>Our Services</h2>
-                <p class="subtitle">Comprehensive financial and compliance solutions for your business growth</p>
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive financial and compliance solutions for your business growth</p>
+                </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="icons/income-tax.svg" alt="Income Tax Icon" class="service-icon">
+                        <div class="service-card-icon">
+                            <!-- Income Tax Return Filing Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#198754" viewBox="0 0 16 16">
+                                <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-4 0v-3H2v3h2z"/>
+                            </svg>
+                        </div>
                         <h3>Income Tax Return Filing</h3>
-                        <p>Expert assistance in filing IT returns for individuals and businesses</p>
                     </div>
                     <div class="service-card">
-                        <img src="icons/gst.svg" alt="GST Icon" class="service-icon">
+                        <div class="service-card-icon">
+                            <!-- GST Registration Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#6c757d" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                            </svg>
+                        </div>
                         <h3>GST Registration & Compliance</h3>
-                        <p>Complete GST services including registration, filing, and compliance</p>
                     </div>
                     <div class="service-card">
-                        <img src="icons/company-reg.svg" alt="Company Registration Icon" class="service-icon">
+                        <div class="service-card-icon">
+                             <!-- Company Registration Icon -->
+                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#17a2b8" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+                            </svg>
+                        </div>
                         <h3>Company Registration</h3>
-                        <p>Private Limited, LLP, Partnership, and Proprietorship registration</p>
                     </div>
                     <div class="service-card">
-                        <img src="icons/accounting.svg" alt="Accounting Icon" class="service-icon">
+                        <div class="service-card-icon">
+                            <!-- Accounting Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#8c8273" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3h6V2.5A1.5 1.5 0 0 0 9.5 1h-3z"/>
+                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-8zM7.5 7a.5.5 0 0 0-1 0v1.5a.5.5 0 0 0 1 0V7z"/>
+                            </svg>
+                        </div>
                         <h3>Accounting & Bookkeeping</h3>
                         <p>Professional accounting services and financial record maintenance</p>
                     </div>
                     <div class="service-card">
-                        <img src="icons/audit.svg" alt="Audit Icon" class="service-icon">
+                        <div class="service-card-icon">
+                            <!-- Audit Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#6c757d" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </div>
                         <h3>Audit & Assurance</h3>
                         <p>Statutory audit, internal audit, and assurance services</p>
                     </div>
                     <div class="service-card">
-                        <img src="icons/consulting.svg" alt="Financial Consulting Icon" class="service-icon">
+                        <div class="service-card-icon">
+                             <!-- Financial Consulting Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#4a4a4a" stroke-width="1.5"></rect>
+                                <path d="M7 15.5V11C7 10.4477 7.44772 10 8 10H9.5" stroke="#4a4a4a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9.5 10L11 12L13 10L14.5 11.5L17 8.5" stroke="#4a4a4a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M14.5 8.5H17V11" stroke="#e53e3e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
                         <h3>Financial Consulting</h3>
                         <p>Strategic financial planning and business advisory services</p>
                     </div>
@@ -105,65 +504,76 @@
             </div>
         </section>
 
-        <!-- Bottom CTA Section -->
-        <section id="cta-bottom">
+        <!-- CTA Section -->
+        <section class="cta-section">
             <div class="container">
                 <h2>Ready to Grow Your Business?</h2>
                 <p>Let our experts handle your finances while you focus on what matters most</p>
-                <a href="#" class="cta-button">Contact Us Today</a>
+                <a href="#" class="btn">Contact Us Today</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-main">
-            <div class="container">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 <div class="footer-col about">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="iBLE BOOM SERVICES Logo">
-                        <span class="logo-text">iBLE BOOM SERVICES PVT LTD</span>
-                    </div>
+                    <a href="#" class="footer-logo">
+                         <svg width="40" height="40" viewBox="0 0 100 100">
+                           <rect x="5" y="5" width="90" height="90" rx="10" ry="10" fill="#8c8273"/>
+                           <text x="50" y="68" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="white" text-anchor="middle">iB</text>
+                         </svg>
+                         <h2>iBLE BOOM SERVICES PVT LTD</h2>
+                    </a>
                     <p>Your trusted partner for comprehensive CA and financial services.</p>
-                    <div class="certifications-footer">
-                        <span class="cert-pill-footer">MSME Certified</span>
-                        <span class="cert-pill-footer">Startup India Certified</span>
-                        <span class="cert-pill-footer">DPIIT Recognised</span>
+                    <div>
+                        <span class="footer-cert-badge">MSME Certified</span>
+                        <span class="footer-cert-badge">Startup India Certified</span>
+                        <span class="footer-cert-badge">DPIT Recognised</span>
                     </div>
                 </div>
-                <div class="footer-col links">
+                <div class="footer-col">
                     <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="Services.html">Services</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col contact">
+                <div class="footer-col">
                     <h3>Contact Info</h3>
-                    <ul>
-                        <li>
-                            <img src="icons/email.svg" alt="Email Icon" class="contact-icon">
-                            <a href="mailto:ibleboom@gmail.com">ibleboom@gmail.com</a>
-                        </li>
-                        <li>
-                            <img src="icons/phone.svg" alt="Phone Icon" class="contact-icon">
-                            <a href="tel:+919015129825">+91 9015129825</a>
-                        </li>
-                        <li>
-                            <img src="icons/location.svg" alt="Location Icon" class="contact-icon">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <!-- Email Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                            </svg>
+                            <span>ibleboom@gmail.com</span>
+                        </div>
+                        <div class="contact-info-item">
+                             <!-- Phone Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.28 1.465l-2.135 2.135a11.945 11.945 0 0 0 6.095 6.095l2.135-2.135a1.5 1.5 0 0 1 1.465.28l2.296 1.78a1.745 1.745 0 0 1 .163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <span>+91 9015129625</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <!-- Location Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                            </svg>
                             <span>ANDHIYARI, BHAGWARIPUR, ALLAHABAD, UP 229413</span>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 iBLE BOOM SERVICES PVT. LTD. All rights reserved.</p>
+            <div class="copyright">
+                © 2024 iBLE BOOM SERVICES PVT. LTD. All rights reserved.
+            </div>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
+
 </body>
 </html>
