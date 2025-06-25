@@ -28,9 +28,9 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* --- MODIFIED HEADER --- */
         .site-header {
-            background-color: #fff;
+            background-color: #3b5998; /* New background color */
             padding: 15px 0;
             border-bottom: 1px solid #e0e0e0;
         }
@@ -41,43 +41,8 @@
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #222;
-        }
-
-        .logo-icon {
-            background: linear-gradient(45deg, #FFC107, #FF8A00);
-            color: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 20px;
-            margin-right: 10px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text strong {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 10px;
-            font-weight: 500;
-            color: #777;
-            text-transform: uppercase;
+        .logo img {
+            display: block; /* Prevents extra space below the image */
         }
 
         .main-nav ul {
@@ -88,7 +53,7 @@
 
         .main-nav a {
             text-decoration: none;
-            color: #333;
+            color: #ffffff; /* New text color */
             font-weight: 500;
             font-size: 16px;
             padding-bottom: 5px;
@@ -96,8 +61,8 @@
         }
 
         .main-nav a.active {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
+            color: #ffffff; /* Active link color */
+            border-bottom: 2px solid #ffffff; /* Active link border */
         }
 
         /* Main Content */
@@ -258,7 +223,7 @@
         }
 
 
-        /* Footer */
+        /* --- MODIFIED FOOTER --- */
         .site-footer {
             background-color: #0a192f;
             color: #a8b2d1;
@@ -288,14 +253,13 @@
             margin-bottom: 20px;
         }
         
-        .footer-col p {
-            font-size: 15px;
+        .footer-col .footer-logo-container {
             margin-bottom: 20px;
         }
 
-        .footer-col .logo {
+        .footer-col p {
+            font-size: 15px;
             margin-bottom: 20px;
-            color: #fff;
         }
         
         .certifications span {
@@ -334,7 +298,7 @@
         }
         
         .footer-contact-info .info-item .icon {
-            color: #64ffda; /* A bright accent color for the footer */
+            color: #64ffda;
             margin-top: 0;
         }
 
@@ -369,11 +333,8 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <div class="logo-icon">iB</div>
-                <div class="logo-text">
-                    <strong>iBLE BOOM SERVICES</strong>
-                    <span>PVT LTD</span>
-                </div>
+                <!-- LOGO IMAGE REPLACED HERE -->
+                <img src="logo.png" alt="iBLE BOOM SERVICES PVT LTD Logo" width="200" height="60">
             </a>
             <nav class="main-nav">
                 <ul>
@@ -398,7 +359,6 @@
                     <h2>Contact Information</h2>
                     <div class="info-item">
                         <div class="icon">
-                            <!-- Phone SVG -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         </div>
                         <div>
@@ -408,7 +368,6 @@
                     </div>
                     <div class="info-item">
                         <div class="icon">
-                            <!-- Email SVG -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </div>
                         <div>
@@ -418,7 +377,6 @@
                     </div>
                     <div class="info-item">
                         <div class="icon">
-                           <!-- Location SVG -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         </div>
                         <div>
@@ -478,12 +436,10 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col about">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">iB</div>
-                        <div class="logo-text">
-                            <strong>iBLE BOOM SERVICES PVT LTD</strong>
-                        </div>
-                    </a>
+                    <div class="footer-logo-container">
+                        <!-- LOGO IMAGE REPLACED HERE -->
+                        <img src="logo.png" alt="iBLE BOOM SERVICES PVT LTD Logo" width="200" height="60">
+                    </div>
                     <p>Your trusted partner for comprehensive CA and financial services.</p>
                     <div class="certifications">
                         <span>MSME Certified</span>
@@ -535,7 +491,6 @@
         const submitBtn = document.getElementById('submitBtn');
         const formMessage = document.getElementById('form-message');
 
-        // URL has been updated with the one you provided
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUoRDRkfq5m32kPcZIWP0rKSUbhREp5DZsZxQYELtDAq-_oaTwDE4mmYwo0ADCQlQJA/exec'; 
 
         form.addEventListener('submit', e => {
