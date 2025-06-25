@@ -26,10 +26,10 @@
 
         /* --- Header & Navigation --- */
         .header {
-            /* UPDATED: Header background color */
-            background-color: #3b5998;
+            /* REVERTED: Header background color to white */
+            background-color: #fff;
             padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -45,7 +45,8 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: #fff; /* UPDATED: Default logo color to white */
+            /* REVERTED: Logo text color to default dark */
+            color: #333;
         }
 
         .logo-text {
@@ -56,20 +57,17 @@
             font-size: 16px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            /* UPDATED: Text color to white */
-            color: #fff;
         }
         
         .logo-text span {
             font-size: 12px;
-            /* UPDATED: Text color to a lighter white/grey */
-            color: #f0f0f0;
+            color: #6c757d;
         }
         
         /* Desktop Navigation */
         .nav-links a {
-            /* UPDATED: Nav link color to white */
-            color: #fff;
+            /* REVERTED: Nav link color to default dark */
+            color: #333;
             text-decoration: none;
             margin-left: 30px;
             font-size: 16px;
@@ -78,14 +76,10 @@
             display: inline-block;
         }
 
-        .nav-links a:hover {
-            /* UPDATED: Hover state for white text */
-            color: #ddd;
-        }
-        
-        .nav-links a.active {
-            /* UPDATED: Active state with white underline */
-            border-bottom: 2px solid #fff;
+        /* REVERTED: Hover/Active state to use blue */
+        .nav-links a:hover, .nav-links a.active {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
         }
 
         /* --- Mobile Navigation (Hamburger Menu) --- */
@@ -96,14 +90,13 @@
         .nav-toggle-label {
             display: none; /* Hide hamburger by default */
             cursor: pointer;
-            /* UPDATED: Make hamburger icon white */
-            color: #fff;
+            /* REVERTED: Hamburger icon color to dark */
+            color: #333;
         }
 
         .nav-close-label {
             display: none; /* Hide close button by default */
             cursor: pointer;
-            /* UPDATED: Make close icon dark for contrast on white menu */
             color: #333; 
         }
 
@@ -413,7 +406,6 @@
                 margin-left: 0;
                 font-size: 24px;
                 font-weight: 600;
-                /* UPDATED: Nav link color in mobile menu */
                 color: #333;
             }
 
