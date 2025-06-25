@@ -1,80 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="contact-style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - iBLE BOOM SERVICES PVT LTD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .logo-icon {
+            background: linear-gradient(45deg, #FFC107, #FF8A00);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text strong {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            font-weight: 500;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .main-nav a.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .get-in-touch {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .get-in-touch h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .get-in-touch p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form-section {
+            flex: 1;
+        }
+
+        .contact-info h2, .contact-form-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-item .icon {
+            color: #0056b3;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .info-item .icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .business-hours {
+            background-color: #fffaf0;
+            border: 1px solid #ffeBCD;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .business-hours h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .business-hours p {
+            font-size: 16px;
+            color: #444;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #2962ff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0045e0;
+        }
+
+        .submit-btn:disabled {
+            background-color: #a0b9e8;
+            cursor: not-allowed;
+        }
+
+        #form-message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+
+        /* Footer */
+        .site-footer {
+            background-color: #0a192f;
+            color: #a8b2d1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+        
+        .footer-col.about {
+            flex: 2;
+        }
+        
+        .footer-col h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col .logo {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .certifications span {
+            display: inline-block;
+            background-color: #112240;
+            border: 1px solid #233554;
+            color: #a8b2d1;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #a8b2d1;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #64ffda;
+        }
+
+        .footer-contact-info .info-item {
+            color: #a8b2d1;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .footer-contact-info .info-item .icon {
+            color: #64ffda; /* A bright accent color for the footer */
+            margin-top: 0;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #233554;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+             .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Fixed Header -->
-  <header class="site-header">
-    <div class="logo">iBLE BOOM SERVICES <br><span>PVT LTD</span></div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="Services.html">Services</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
 
-  <!-- Contact Form -->
-  <div class="container">
-    <div class="form-box">
-      <h1>Contact Us</h1>
-      <p>We’d love to hear from you! Fill out the form below to get in touch.</p>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">iB</div>
+                <div class="logo-text">
+                    <strong>iBLE BOOM SERVICES</strong>
+                    <span>PVT LTD</span>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-      <form id="contactForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
+    <main class="main-content">
+        <div class="container">
+            <div class="get-in-touch">
+                <h1>Get In Touch</h1>
+                <p>Ready to take your business to the next level? Contact our experts today</p>
+            </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-item">
+                        <div class="icon">
+                            <!-- Phone SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+91 9015129625</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">
+                            <!-- Email SVG -->
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>ibleboom@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">
+                           <!-- Location SVG -->
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <strong>Address</strong>
+                            <p>ANDHYARI, BHAGWARIPUR,<br>ALLAHABAD, Uttar Pradesh, India<br>PIN: 229413</p>
+                        </div>
+                    </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="business-hours">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
 
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
+                <div class="contact-form-section">
+                    <div class="contact-form">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="Full_Name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="Email_Address" placeholder="Enter your email" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="Phone_Number" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Required</label>
+                                <select id="service" name="Service_Required">
+                                    <option value="">Select a service</option>
+                                    <option value="CA Services">CA Services</option>
+                                    <option value="Financial Consulting">Financial Consulting</option>
+                                    <option value="Startup India">Startup India</option>
+                                    <option value="MSME Registration">MSME Registration</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="Message" placeholder="Tell us about your requirements" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+                            <p id="form-message"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col about">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">iB</div>
+                        <div class="logo-text">
+                            <strong>iBLE BOOM SERVICES PVT LTD</strong>
+                        </div>
+                    </a>
+                    <p>Your trusted partner for comprehensive CA and financial services.</p>
+                    <div class="certifications">
+                        <span>MSME Certified</span>
+                        <span>Startup India Certified</span>
+                        <span>DPIIT Recognised</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-info">
+                        <div class="info-item">
+                             <div class="icon">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <p>ibleboom@gmail.com</p>
+                        </div>
+                         <div class="info-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <p>+91 9015129625</p>
+                        </div>
+                         <div class="info-item">
+                            <div class="icon">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <p>ANDHYARI, BHAGWARIPUR, ALLAHABAD, UP 229413</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2024 iBLE BOOM SERVICES PVT. LTD. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
-  <script src="contact-script.js"></script>
-  <!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-section company-info">
-      <div class="footer-logo">iBLE BOOM SERVICES</div>
-      <h3>PVT LTD</h3>
-      <p>Your trusted partner for comprehensive CA and financial services.</p>
-      <ul class="certifications">
-        <li>✅ MSME Certified</li>
-        <li>✅ Startup India Certified</li>
-        <li>✅ DPIIT Recognised</li>
-      </ul>
-    </div>
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('form-message');
 
-    <div class="footer-section quick-links">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="Services.html">Services</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </div>
+        // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUoRDRkfq5m32kPcZIWP0rKSUbhREp5DZsZxQYELtDAq-_oaTwDE4mmYwo0ADCQlQJA/exec'; 
 
-    <div class="footer-section contact-info">
-      <h4>Contact Info</h4>
-      <p>📧 ibleboom@gmail.com</p>
-      <p>📞 +91 9015129825</p>
-      <p>📍 ANDHIYARI, BHAGWARIPUR,<br>ALLAHABAD, UP 229413</p>
-    </div>
-  </div>
+        form.addEventListener('submit', e => {
+            e.preventDefault();
 
-  <div class="footer-bottom">
-    © 2025 iBLE BOOM SERVICES PVT LTD. All rights reserved.
-  </div>
-</footer>
+            if (scriptURL === 'https://script.google.com/macros/s/AKfycbwqUoRDRkfq5m32kPcZIWP0rKSUbhREp5DZsZxQYELtDAq-_oaTwDE4mmYwo0ADCQlQJA/exec') {
+                formMessage.textContent = 'Error: Please set up the Google Apps Script URL first.';
+                formMessage.style.color = 'red';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(form);
+            
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        formMessage.textContent = 'Message sent successfully!';
+                        formMessage.style.color = 'green';
+                        form.reset();
+                    } else {
+                        throw new Error(data.error || 'An unknown error occurred.');
+                    }
+                })
+                .catch(error => {
+                    formMessage.textContent = 'Error sending message. Please try again.';
+                    formMessage.style.color = 'red';
+                    console.error('Error!', error.message);
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+    </script>
 
 </body>
 </html>
