@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iBLE BOOM SERVICES PVT LTD</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Reset and Basic Styles */
+        /* --- General Styles & Reset --- */
         * {
             margin: 0;
             padding: 0;
@@ -16,23 +13,23 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #333;
-            line-height: 1.6;
+            background-color: #f8f9fa;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
+        /* --- Header & Navigation --- */
         .header {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            /* UPDATED: Header background color */
+            background-color: #3b5998;
             padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -47,475 +44,627 @@
         .logo {
             display: flex;
             align-items: center;
-            font-weight: 600;
+            text-decoration: none;
+            color: #fff; /* UPDATED: Default logo color to white */
         }
 
-        .logo-icon {
-            background-color: #e5b341;
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
+        .logo-text {
+            margin-left: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 16px;
             font-weight: 700;
-            border-radius: 8px;
-            margin-right: 10px;
+            letter-spacing: 0.5px;
+            /* UPDATED: Text color to white */
+            color: #fff;
         }
         
         .logo-text span {
-            display: block;
-            font-size: 16px;
-            color: #2c3e50;
-        }
-
-        .logo-text small {
             font-size: 12px;
-            color: #7f8c8d;
-            font-weight: 400;
+            /* UPDATED: Text color to a lighter white/grey */
+            color: #f0f0f0;
         }
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav a {
+        
+        /* Desktop Navigation */
+        .nav-links a {
+            /* UPDATED: Nav link color to white */
+            color: #fff;
             text-decoration: none;
-            color: #333;
+            margin-left: 30px;
+            font-size: 16px;
             font-weight: 500;
             padding-bottom: 5px;
-            position: relative;
+            display: inline-block;
         }
 
-        .nav a.active, .nav a:hover {
-            color: #3471e8;
+        .nav-links a:hover {
+            /* UPDATED: Hover state for white text */
+            color: #ddd;
+        }
+        
+        .nav-links a.active {
+            /* UPDATED: Active state with white underline */
+            border-bottom: 2px solid #fff;
         }
 
-        .nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #3471e8;
+        /* --- Mobile Navigation (Hamburger Menu) --- */
+        .nav-toggle {
+            display: none; /* Hide the checkbox */
         }
 
-        /* Main Content Sections */
-        .services-intro {
+        .nav-toggle-label {
+            display: none; /* Hide hamburger by default */
+            cursor: pointer;
+            /* UPDATED: Make hamburger icon white */
+            color: #fff;
+        }
+
+        .nav-close-label {
+            display: none; /* Hide close button by default */
+            cursor: pointer;
+            /* UPDATED: Make close icon dark for contrast on white menu */
+            color: #333; 
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: #2545b8;
+            color: #fff;
+            padding: 100px 0;
             text-align: center;
-            padding: 80px 20px;
         }
 
-        .services-intro h1 {
-            font-size: 42px;
-            color: #2c3e50;
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
             margin-bottom: 15px;
         }
 
-        .services-intro p {
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .certifications {
+            margin-bottom: 40px;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .btn {
+            background-color: #f5b01c;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
             font-size: 18px;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /* Services Grid */
+        .btn:hover {
+            background-color: #d99a1a;
+        }
+        
+        /* --- Stats Section --- */
+        .stats-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card .number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .number.blue { color: #2545b8; }
+        .stat-card .number.green { color: #198754; }
+        .stat-card .number.red { color: #dc3545; }
+
+        .stat-card .label {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        /* --- Services Section --- */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
         .services-grid {
-            padding-bottom: 80px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
 
         .service-card {
             background-color: #fff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-top: 3px solid #3471e8;
-            border-left: 3px solid #3471e8;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            border-left: 4px solid #2545b8;
         }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-card-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .service-card .icon {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
+        
+        .service-card-icon {
+            margin-bottom: 20px;
         }
 
         .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-            color: #2c3e50;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .service-card p {
-            color: #555;
-            margin-bottom: 15px;
+            color: #6c757d;
+            line-height: 1.6;
         }
 
-        .service-card .learn-more {
-            text-decoration: none;
-            color: #3471e8;
-            font-weight: 500;
-        }
-
-        /* Why Choose Us Section */
-        .why-us {
-            background-color: #fffbf0;
+        /* --- CTA Section --- */
+        .cta-section {
+            background-color: #2545b8;
+            color: #fff;
             padding: 80px 0;
             text-align: center;
         }
-        
-        .why-us h2 {
+
+        .cta-section h2 {
             font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 50px;
-        }
-
-        .features-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .feature-item {
-            max-width: 200px;
-        }
-        
-        .feature-item .icon {
-            width: 70px;
-            height: 70px;
+            font-weight: 700;
             margin-bottom: 15px;
         }
 
-        .feature-item p {
+        .cta-section p {
             font-size: 18px;
-            font-weight: 600;
-            color: #333;
+            margin-bottom: 30px;
         }
 
-        /* Footer */
+        /* --- Footer --- */
         .footer {
-            background-color: #0f172a;
-            color: #cbd5e1;
-            padding: 60px 0 30px;
-        }
-
-        .footer .container {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1.5fr;
-            gap: 40px;
+            background-color: #1e293b;
+            color: #adb5bd;
+            padding: 60px 0 0;
         }
         
-        .footer h4 {
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .footer-about .logo {
-            margin-bottom: 20px;
-        }
-        .footer-about .logo-text span {
-           color: #fff;
-        }
-        .footer-about p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 15px;
-        }
-        
-        .footer-tags {
+        .footer-grid {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 40px;
             flex-wrap: wrap;
         }
 
-        .footer-tags span {
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col.about {
+            flex: 2;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+        
+        .footer-logo h2 {
+            color: #fff;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        .footer-col p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-cert-badge {
+            display: inline-block;
             background-color: #334155;
-            color: #e2e8f0;
-            padding: 5px 12px;
+            padding: 5px 15px;
             border-radius: 15px;
             font-size: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 25px;
         }
         
-        .footer-links ul, .footer-contact ul {
+        .footer-links {
             list-style: none;
         }
-        
-        .footer-links li, .footer-contact li {
+
+        .footer-links li {
             margin-bottom: 12px;
         }
 
         .footer-links a {
+            color: #adb5bd;
             text-decoration: none;
-            color: #cbd5e1;
             transition: color 0.3s ease;
         }
-        
         .footer-links a:hover {
             color: #fff;
         }
-        
-        .footer-contact li {
+
+        .contact-info-item {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            margin-bottom: 15px;
         }
         
-        .footer-contact .icon {
-            width: 20px;
-            height: 20px;
+        .contact-info-item svg {
+            color: #f5b01c;
+            margin-right: 15px;
             flex-shrink: 0;
-            margin-top: 3px;
+            margin-top: 4px;
         }
 
-        /* Responsive Design */
+        .copyright {
+            border-top: 1px solid #334155;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        /* --- Responsive Adjustments --- */
         @media (max-width: 992px) {
-            .grid-container {
-                grid-template-columns: 1fr;
+            .stats-grid, .services-grid, .footer-grid {
+                flex-direction: column;
+                align-items: center;
             }
-            .footer .container {
-                grid-template-columns: 1fr;
-            }
-            .features-container {
-                flex-wrap: wrap;
-                gap: 40px;
+
+            .service-card {
+                width: 80%;
+                max-width: 400px;
             }
         }
 
         @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                gap: 15px;
+            /* Show hamburger icon */
+            .nav-toggle-label {
+                display: block;
             }
-            .nav ul {
+
+            /* Style the mobile navigation container */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start off-screen */
+                height: 100vh;
+                width: 100%;
+                background-color: #fff;
+                z-index: 1001;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 gap: 20px;
+                
+                transition: right 0.3s ease-in-out;
             }
-            .services-intro h1 {
-                font-size: 32px;
+            
+            /* Show the close button inside the open menu */
+            .nav-links .nav-close-label {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 20px;
             }
-            .why-us h2 {
-                font-size: 28px;
+
+            /* Style links for mobile view */
+            .nav-links a {
+                margin-left: 0;
+                font-size: 24px;
+                font-weight: 600;
+                /* UPDATED: Nav link color in mobile menu */
+                color: #333;
             }
-            .features-container {
-                flex-direction: column;
+
+            .nav-links a:hover, .nav-links a.active {
+                color: #0d6efd;
+                border-bottom-color: #0d6efd;
+            }
+
+            /* THE MAGIC: When the checkbox is checked, slide the nav in */
+            .nav-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            /* Other mobile adjustments */
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .cta-section h2 { font-size: 28px; }
+            
+            .footer-grid {
+                text-align: center;
+            }
+
+            .footer-col {
+                margin-bottom: 30px;
+            }
+            
+            .footer-logo, .contact-info-item {
+                justify-content: center;
+            }
+
+            .contact-info-item svg {
+                margin-right: 10px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">iB</div>
+            <a href="#" class="logo">
+                <!-- LOGO IMAGE -->
+                <img src="logo.png" alt="iBLE BOOM SERVICES Logo" width="40" height="40">
                 <div class="logo-text">
-                    <span>iBLE BOOM SERVICES</span>
-                    <small>PVT LTD</small>
+                    <h1>iBLE BOOM SERVICES</h1>
+                    <span>PVT LTD</span>
                 </div>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Services.html" class="active">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            </a>
+            
+            <!-- Hidden Checkbox for menu toggle -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            
+            <!-- Hamburger Icon -->
+            <label for="nav-toggle" class="nav-toggle-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </label>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <!-- Close Icon (for mobile) -->
+                <label for="nav-toggle" class="nav-close-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </label>
+                <a href="#" class="active">Home</a>
+                <a href="#">Services</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="services-intro">
-            <h1>Our Comprehensive Services</h1>
-            <p>We provide end-to-end financial and compliance solutions tailored to your business needs</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>iBLE BOOM SERVICES PVT LTD</h1>
+                <p>Your Trusted Partner for Complete CA & Financial Services</p>
+                <div class="certifications">
+                    <span class="cert-badge">MSME Certified</span>
+                    <span class="cert-badge">Startup India Certified</span>
+                    <span class="cert-badge">DPIT Recognised</span>
+                </div>
+                <a href="#" class="btn">Get Expert Consultation</a>
+            </div>
         </section>
 
-        <section class="services-grid">
+        <!-- Stats Section -->
+        <section class="stats-section">
             <div class="container">
-                <div class="grid-container">
-                    <!-- Service Card 1 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M20 1h32v62H12V13L20 1z" fill="#4CAF50"/><path d="M12 13h8v-1H12v1zm8 0l-8-12" stroke="#66BB6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 28h20M22 36h20M22 44h10" stroke="#FFF" stroke-width="2" stroke-linecap="round"/><path d="M26.04 54.04l6-6 7.97 4 8.989-10" stroke="#F44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>Income Tax Return Filing</h3>
-                                <p>Expert assistance in filing IT returns for individuals and businesses</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number blue">200+</div>
+                        <div class="label">Happy Clients</div>
                     </div>
-                    <!-- Service Card 2 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M24 5h28v54H12V17l12-12z" fill="#2196F3"/><path d="M12 17h12V5" fill="#64B5F6"/><path d="M22 30h20M22 38h20M22 46h12" stroke="#FFF" stroke-width="2" stroke-linecap="round"/><rect stroke="#2196F3" stroke-width="2" fill="#E3F2FD" x="18" y="2" width="12" height="10" rx="2"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>GST Registration & Compliance</h3>
-                                <p>Complete GST services including registration, filing, and compliance</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
+                    <div class="stat-card">
+                        <div class="number green">1</div>
+                        <div class="label">Year of Excellence</div>
                     </div>
-                    <!-- Service Card 3 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8 12h48v40H8z" fill="#2196F3"/><path d="M8 12h48v8H8z" fill="#1976D2"/><circle cx="14" cy="16" r="2" fill="#FFF"/><circle cx="20" cy="16" r="2" fill="#FFF"/><circle cx="26" cy="16" r="2" fill="#FFF"/><circle cx="22" cy="30" r="2" fill="#FFF"/><circle cx="32" cy="30" r="2" fill="#FFF"/><circle cx="42" cy="30" r="2" fill="#FFF"/><circle cx="22" cy="40" r="2" fill="#FFF"/><circle cx="32" cy="40" r="2" fill="#FFF"/><circle cx="42" cy="40" r="2" fill="#FFF"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>Company Registration</h3>
-                                <p>Private Limited, LLP, Partnership, and Proprietorship registration</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M52 18H12a4 4 0 00-4 4v28a4 4 0 004 4h40a4 4 0 004-4V22a4 4 0 00-4-4z" fill="#795548"/><path d="M38 12h-12a2 2 0 00-2 2v4h16v-4a2 2 0 00-2-2z" fill="#A1887F"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>Accounting & Bookkeeping</h3>
-                                <p>Professional accounting services and financial record maintenance</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Service Card 5 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#64B5F6" cx="28" cy="28" r="20"/><path d="M42 42l10 10" stroke="#2196F3" stroke-width="6" stroke-linecap="round"/><circle fill="#E3F2FD" cx="28" cy="28" r="12"/><path d="M28 22v12" stroke="#2196F3" stroke-width="3" stroke-linecap="round"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>Audit & Assurance</h3>
-                                <p>Statutory audit, internal audit, and assurance services</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Service Card 6 -->
-                    <div class="service-card">
-                        <div class="service-card-content">
-                            <div class="icon">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M12 8h32v48H12z" fill="#E3F2FD"/><path d="M12 8h32v8H12z" fill="#90CAF9"/><path d="M20 28l8 8 12-16" stroke="#F44336" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 20l-4 4" stroke="#F44336" stroke-width="3" stroke-linecap="round"/></g></svg>
-                            </div>
-                            <div>
-                                <h3>Financial Consulting</h3>
-                                <p>Strategic financial planning and business advisory services</p>
-                                <a href="#" class="learn-more">Learn More →</a>
-                            </div>
-                        </div>
+                    <div class="stat-card">
+                        <div class="number red">100%</div>
+                        <div class="label">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="why-us">
+        <!-- Services Section -->
+        <section class="services-section">
             <div class="container">
-                <h2>Why Choose Us?</h2>
-                <div class="features-container">
-                    <div class="feature-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFF9C4" cx="32" cy="32" r="30"/><path d="M34.333 12L23 33.333h10.667L29.667 52 41 30.667H30.333L34.333 12z" fill="#FFC107"/></g></svg>
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive financial and compliance solutions for your business growth</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <!-- Income Tax Return Filing Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#198754" viewBox="0 0 16 16">
+                                <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-4 0v-3H2v3h2z"/>
+                            </svg>
                         </div>
-                        <p>Quick Turnaround</p>
+                        <h3>Income Tax Return Filing</h3>
                     </div>
-                    <div class="feature-item">
-                        <div class="icon">
-                           <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFCDD2" cx="32" cy="32" r="30"/><circle fill="#FFF" cx="32" cy="32" r="22"/><circle fill="#E53935" cx="32" cy="32" r="14"/><circle fill="#FFF" cx="32" cy="32" r="6"/></g></svg>
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <!-- GST Registration Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#6c757d" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                            </svg>
                         </div>
-                        <p>Expert Team</p>
+                        <h3>GST Registration & Compliance</h3>
                     </div>
-                    <div class="feature-item">
-                        <div class="icon">
-                           <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFF9C4" cx="32" cy="32" r="30"/><path d="M42.4 49.2s-19.6 4.8-24.8-12.8c-4.4-15.2 8-22.8 8-22.8S12 28.8 17.6 44.4c6 16.8 24.8 4.8 24.8 4.8z" fill="#FFC107"/><path d="M32.8 20.8c-3.6 0-6.8 2.8-6.8 6.4s2.4 5.2 6 5.6v2.4h2v-2.4c3.6-.4 6-2 6-5.6s-3.2-6.4-7.2-6.4zm-1.2 2h2.4c1.6 0 2.8 1.6 2.8 3.2s-1.2 2.8-2.8 2.8h-2.4c-1.6 0-2.8-1.2-2.8-2.8.4-2 1.6-3.2 2.8-3.2z" fill="#F57F17"/><path d="M19.2 14.8l10.8-4.4 2 2.4-10.8 4.4zM44.4 14.8l-10.8-4.4-2 2.4 10.8 4.4z" fill="#F57F17"/></g></svg>
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                             <!-- Company Registration Icon -->
+                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#17a2b8" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+                            </svg>
                         </div>
-                        <p>Competitive Pricing</p>
+                        <h3>Company Registration</h3>
                     </div>
-                    <div class="feature-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M32 6c-9.2 0-17.6 4-22 10.8l22 40.4 22-40.4C49.6 10 41.2 6 32 6z" fill="#FFCDD2"/><path d="M32 6c-4.14 0-8.28 1.12-11.8 3.36L32 32.4 43.8 9.36C40.28 7.12 36.14 6 32 6z" fill="#E53935"/></g></svg>
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <!-- Accounting Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#8c8273" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3h6V2.5A1.5 1.5 0 0 0 9.5 1h-3z"/>
+                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-8zM7.5 7a.5.5 0 0 0-1 0v1.5a.5.5 0 0 0 1 0V7z"/>
+                            </svg>
                         </div>
-                        <p>100% Compliance</p>
+                        <h3>Accounting & Bookkeeping</h3>
+                        <p>Professional accounting services and financial record maintenance</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <!-- Audit Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#6c757d" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Audit & Assurance</h3>
+                        <p>Statutory audit, internal audit, and assurance services</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                             <!-- Financial Consulting Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#4a4a4a" stroke-width="1.5"></rect>
+                                <path d="M7 15.5V11C7 10.4477 7.44772 10 8 10H9.5" stroke="#4a4a4a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9.5 10L11 12L13 10L14.5 11.5L17 8.5" stroke="#4a4a4a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M14.5 8.5H17V11" stroke="#e53e3e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <h3>Financial Consulting</h3>
+                        <p>Strategic financial planning and business advisory services</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Grow Your Business?</h2>
+                <p>Let our experts handle your finances while you focus on what matters most</p>
+                <a href="#" class="btn">Contact Us Today</a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-about">
-                <div class="logo">
-                    <div class="logo-icon">iB</div>
-                    <div class="logo-text">
-                        <span>iBLE BOOM SERVICES PVT LTD</span>
+            <div class="footer-grid">
+                <div class="footer-col about">
+                    <a href="#" class="footer-logo">
+                         <!-- FOOTER LOGO IMAGE -->
+                         <img src="logo.png" alt="iBLE BOOM SERVICES Logo" width="40" height="40">
+                         <h2>iBLE BOOM SERVICES PVT LTD</h2>
+                    </a>
+                    <p>Your trusted partner for comprehensive CA and financial services.</p>
+                    <div>
+                        <span class="footer-cert-badge">MSME Certified</span>
+                        <span class="footer-cert-badge">Startup India Certified</span>
+                        <span class="footer-cert-badge">DPIT Recognised</span>
                     </div>
                 </div>
-                <p>Your trusted partner for comprehensive CA and financial services.</p>
-                <div class="footer-tags">
-                    <span>MSME Certified</span>
-                    <span>Startup India Certified</span>
-                    <span>DPIIT Recognised</span>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <!-- Email Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                            </svg>
+                            <span>ibleboom@gmail.com</span>
+                        </div>
+                        <div class="contact-info-item">
+                             <!-- Phone Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.28 1.465l-2.135 2.135a11.945 11.945 0 0 0 6.095 6.095l2.135-2.135a1.5 1.5 0 0 1 1.465.28l2.296 1.78a1.745 1.745 0 0 1 .163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            <span>+91 9015129625</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <!-- Location Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                            </svg>
+                            <span>ANDHIYARI, BHAGWARIPUR, ALLAHABAD, UP 229413</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li>
-                        <div class="icon">
-                            <svg fill="#cbd5e1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        </div>
-                        ibleboom@gmail.com
-                    </li>
-                    <li>
-                        <div class="icon">
-                           <svg fill="#cbd5e1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        </div>
-                        +91 9015129625
-                    </li>
-                    <li>
-                        <div class="icon">
-                           <svg fill="#cbd5e1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        ANDHIYARI, BHAGWARIPUR, ALLAHABAD, UP 229413
-                    </li>
-                </ul>
+            <div class="copyright">
+                © 2024 iBLE BOOM SERVICES PVT. LTD. All rights reserved.
             </div>
         </div>
     </footer>
