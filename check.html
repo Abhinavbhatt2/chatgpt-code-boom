@@ -349,37 +349,98 @@
         </div>
     </div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger'), navLinks = document.querySelector('.nav-links'), navOverlay = document.querySelector('.nav-overlay'), links = document.querySelectorAll('.nav-links li a'), body = document.querySelector('body');
-        const closeMenu = () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); navOverlay.classList.remove('active'); body.classList.remove('no-scroll'); };
-        hamburger.addEventListener('click', () => { hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); });
+       <script>
+        // --- Mobile Navigation ---
+        const hamburger = document.querySelector('.hamburger'), 
+              navLinks = document.querySelector('.nav-links'), 
+              navOverlay = document.querySelector('.nav-overlay'), 
+              links = document.querySelectorAll('.nav-links li a'), 
+              body = document.querySelector('body');
+
+        const closeMenu = () => { 
+            hamburger.classList.remove('active'); 
+            navLinks.classList.remove('active'); 
+            navOverlay.classList.remove('active'); 
+            body.classList.remove('no-scroll'); 
+        };
+
+        hamburger.addEventListener('click', () => { 
+            hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); 
+        });
+
         navOverlay.addEventListener('click', closeMenu);
         links.forEach(link => link.addEventListener('click', closeMenu));
-        const modal = document.getElementById('popup-modal'), closeModalBtn = document.getElementById('close-modal-btn'), getStartedBtns = document.querySelectorAll('.btn-service'), serviceSelect = document.getElementById('Service');
-        const openModal = serviceName => { serviceSelect.value = serviceName; modal.classList.add('active'); body.classList.add('no-scroll'); };
-        const closeModal = () => { modal.classList.remove('active'); body.classList.remove('no-scroll'); document.getElementById('form-message').textContent = ''; };
-        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { openModal(this.getAttribute('data-service')); }));
+
+        // --- Popup Modal Logic ---
+        const modal = document.getElementById('popup-modal'), 
+              closeModalBtn = document.getElementById('close-modal-btn'), 
+              getStartedBtns = document.querySelectorAll('.btn-service'), 
+              serviceSelect = document.getElementById('Service');
+        
+        const openModal = serviceName => { 
+            serviceSelect.value = serviceName; 
+            modal.classList.add('active'); 
+            body.classList.add('no-scroll'); 
+        };
+        
+        const closeModal = () => { 
+            modal.classList.remove('active'); 
+            body.classList.remove('no-scroll'); 
+            document.getElementById('form-message').textContent = ''; 
+        };
+
+        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { 
+            openModal(this.getAttribute('data-service')); 
+        }));
+
         closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-        const form = document.getElementById('contact-form'), submitBtn = document.getElementById('form-submit-btn'), formMessage = document.getElementById('form-message');
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwVlRJK_RFlTjrhZnnoOgNJ5cZRiOFW-_n7WSwcBPkfubwY3x_FprH3eBekoA3ELi53/exec';
+        modal.addEventListener('click', function(e) { 
+            if (e.target === this) closeModal(); 
+        });
+
+        // --- Google Sheet Form Submission ---
+        const form = document.getElementById('contact-form'), 
+              submitBtn = document.getElementById('form-submit-btn'), 
+              formMessage = document.getElementById('form-message');
+        
+        // IMPORTANT: Ensure this is the CORRECT Web App URL from a NEW deployment.
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw38Sfx0F8bxN_2AqqI2PXydx2FiM1gjaYxLaL4ieJ22NlIAOkaUhibVfZHbT7s_R6Lkw/exec';
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
             formMessage.textContent = '';
+
             fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form) })
-            .then(res => res.json())
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                }
+                // If the response is not ok, it could be a network or CORS error
+                throw new Error('Network response was not ok.');
+            })
             .then(data => {
                 if (data.result === 'success') {
-                    formMessage.textContent = 'Thank you! Your request has been sent.';
                     formMessage.style.color = 'green';
+                    formMessage.textContent = 'Thank you! Your request has been sent.';
                     form.reset();
-                    setTimeout(() => { closeModal(); }, 2000);
-                } else { throw new Error(data.error || 'An unknown error occurred.'); }
+                    setTimeout(() => { closeModal(); }, 2500);
+                } else { 
+                    // This handles errors reported by the script itself
+                    throw new Error(data.error || 'An unknown script error occurred.'); 
+                }
             })
-            .catch(error => { formMessage.textContent = 'An error occurred. Please try again.'; formMessage.style.color = 'red'; console.error('Error!', error.message); })
-            .finally(() => { submitBtn.disabled = false; submitBtn.textContent = 'Submit'; });
+            .catch(error => { 
+                // This handles network errors and errors thrown above
+                formMessage.style.color = 'var(--error-red)';
+                formMessage.textContent = 'An error occurred. Please try again.'; 
+                console.error('Submission Error!', error); // Check browser console for details
+            })
+            .finally(() => { 
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+            });
         });
     </script>
 </body>
