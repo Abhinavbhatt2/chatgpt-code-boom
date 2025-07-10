@@ -184,13 +184,42 @@
         .service-card .icon { margin-bottom: 20px; }
         .service-card .icon svg { width: 48px; height: 48px; }
         .service-card h3 { margin-bottom: 10px; }
-        .service-card p { color: #666; font-size: 0.9rem; flex-grow: 1; }
-        .service-price {
-            margin-top: 15px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+        .service-card .description { color: #666; font-size: 0.9rem; flex-grow: 1; }
+        
+        .card-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .service-price .price-label {
+            font-size: 0.8rem;
+            color: #777;
+            display: block;
+        }
+        .service-price .price-amount {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .btn-service {
+            padding: 8px 18px;
+            background-color: var(--primary-blue);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-service:hover {
+            background-color: var(--dark-blue);
+        }
+        
         .service-card-1 { border-left-color: #10b981; } .service-card-1 .icon svg { color: #10b981; }
         .service-card-2 { border-left-color: #64748b; } .service-card-2 .icon svg { color: #64748b; }
         .service-card-3 { border-left-color: #14b8a6; } .service-card-3 .icon svg { color: #14b8a6; }
@@ -305,7 +334,7 @@
             </div>
         </section>
 
-        <!-- Services Section -- UPDATED WITH PRICING -->
+        <!-- Services Section -- REFINED CARDS -->
         <section class="services">
             <div class="container">
                 <div class="section-header">
@@ -315,64 +344,79 @@
                 <div class="services-grid">
                     <!-- 1. Trademark Registration -->
                     <div class="service-card service-card-7">
-                        <div class="icon">
-                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 9.5h3a1.5 1.5 0 011.5 1.5v0a1.5 1.5 0 01-1.5 1.5h-3v-3zm0 3v2.5" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12.5L15 15" />
-                            </svg>
-                        </div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 9.5h3a1.5 1.5 0 011.5 1.5v0a1.5 1.5 0 01-1.5 1.5h-3v-3zm0 3v2.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12.5L15 15" /></svg></div>
                         <h3>Trademark Registration</h3>
-                        <p>Protect your brand identity and intellectual property with our expert registration services.</p>
-                        <div class="service-price">Starting at ₹5499/-</div>
+                        <p class="description">Protect your brand identity and intellectual property with our expert registration services.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹5499/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
 
                     <!-- 2. Income Tax Return Filing -->
                     <div class="service-card service-card-1">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg></div>
                         <h3>Income Tax Return Filing</h3>
-                        <p>Simplify your tax obligations and ensure compliance with our expert income tax return filing services.</p>
-                        <div class="service-price">Starting at ₹999/-</div>
+                        <p class="description">Simplify your tax obligations and ensure compliance with our expert income tax return filing services.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹999/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
                     
                     <!-- 3. Company Registration -->
                     <div class="service-card service-card-3">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM9 3.75H6.75A2.25 2.25 0 0 0 4.5 6v12a2.25 2.25 0 0 0 2.25 2.25h10.5A2.25 2.25 0 0 0 19.5 18V6A2.25 2.25 0 0 0 17.25 3.75H15M12 3v12" /></svg></div>
                         <h3>Company Registration</h3>
-                        <p>Establish your business legally and efficiently with our comprehensive company registration assistance.</p>
-                        <div class="service-price">Starting at ₹8999/-</div>
+                        <p class="description">Establish your business legally and efficiently with our comprehensive company registration assistance.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹8999/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
 
                     <!-- 4. GST Registration & Compliance -->
                     <div class="service-card service-card-2">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /><text x="12" y="16" font-size="4" font-family="Poppins" font-weight="bold" fill="currentColor" text-anchor="middle">GST</text></svg></div>
                         <h3>GST Registration & Compliance</h3>
-                        <p>Navigate the complexities of GST with our seamless registration and compliance solutions.</p>
-                        <div class="service-price">Starting at ₹1999/-</div>
+                        <p class="description">Navigate the complexities of GST with our seamless registration and compliance solutions.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹1999/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
                     
                     <!-- 5. Accounting & Bookkeeping -->
                     <div class="service-card service-card-4">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.65H8.228a3.375 3.375 0 0 0-3.285 2.65l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5 0h.008v.008h-.008v-.008Zm-3 0h.008v.008h-.008v-.008Z" /></svg></div>
                         <h3>Accounting & Bookkeeping</h3>
-                        <p>Professional accounting services and financial record maintenance.</p>
-                        <div class="service-price">Starting at ₹2499/-</div>
+                        <p class="description">Professional accounting services and financial record maintenance.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹2499/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
                     
                     <!-- 6. Audit & Assurance -->
                     <div class="service-card service-card-5">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg></div>
                         <h3>Audit & Assurance</h3>
-                        <p>Gain confidence in your financial reporting and operations through our thorough audit and assurance services.</p>
-                        <div class="service-price">Starting at ₹15499/-</div>
+                        <p class="description">Gain confidence in your financial reporting and operations through our thorough audit and assurance services.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹15499/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
                     
                     <!-- 7. Financial Consulting -->
                     <div class="service-card service-card-6">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg></div>
                         <h3>Financial Consulting</h3>
-                        <p>Strategic financial planning and business advisory services.</p>
-                        <div class="service-price">Complimentary / Starting at ₹1499/-</div>
+                        <p class="description">Strategic financial planning and business advisory services.</p>
+                        <div class="card-footer">
+                            <div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹1499/-</span></div>
+                            <a href="#" class="btn btn-service">Get Started</a>
+                        </div>
                     </div>
                 </div>
             </div>
