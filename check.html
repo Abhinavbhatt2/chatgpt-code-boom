@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBLE BOOM SERVICES PVT LTD - Full Website</title>
+    <title>iBLE BOOM SERVICES PVT LTD - Final Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS Reset and Basic Styles */
         :root {
-            --primary-blue: #335eea;
+            --primary-blue: #2545b8; /* UPDATED COLOR */
             --dark-blue: #1e2a3a;
             --primary-yellow: #fdb827;
             --light-grey: #f4f7fa;
@@ -124,7 +124,11 @@
         /* Footer */
         .footer { background-color: var(--dark-blue); color: #ccc; padding: 60px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; }
-        .footer .logo-img { width: 150px; margin-bottom: 15px; filter: brightness(0) invert(1); }
+        .footer .logo-img { 
+            width: 150px; 
+            margin-bottom: 15px; 
+            filter: brightness(0) invert(1); /* FIXED: This makes the dark parts of the logo white */
+        }
         .footer-badges .badge { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); margin-right: 10px; margin-bottom: 10px; display: inline-block; }
         .footer h3 { color: var(--text-light); margin-bottom: 20px; font-size: 1.2rem; }
         .footer ul { list-style: none; }
