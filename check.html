@@ -332,24 +332,44 @@
         </div>
     </footer>
 
-    <!-- Popup Modal -->
+      <!-- Popup Modal UPDATED FOR WEB3FORMS -->
     <div class="modal-overlay" id="popup-modal">
         <div class="modal-content">
             <button class="close-btn" id="close-modal-btn">×</button>
             <h3>Get Started</h3>
-            <form id="contact-form">
+            
+            <!-- The <form> tag is the most important change -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+
+                <!-- This is your Access Key. REPLACE THE VALUE with the key you received in your email -->
+                <input type="hidden" name="access_key" value="e53be3db-8b75-48a6-8cbf-230108b8231d">
+
+                <!-- Optional: Customize the email subject you receive -->
+                <input type="hidden" name="subject" value="New Inquiry from iBLE Boom Website">
+                <input type="hidden" name="from_name" value="iBLE Boom Services">
+                
                 <div class="form-group"><label for="FullName">Full Name</label><input type="text" id="FullName" name="FullName" required></div>
                 <div class="form-group"><label for="Email">Email Address</label><input type="email" id="Email" name="Email" required></div>
                 <div class="form-group"><label for="Phone">Phone Number</label><input type="tel" id="Phone" name="Phone" required></div>
-                <div class="form-group"><label for="Service">Service</label><select id="Service" name="Service" required><option value="Trademark Registration">Trademark Registration</option><option value="Income Tax Return Filing">Income Tax Return Filing</option><option value="Company Registration">Company Registration</option><option value="GST Registration & Compliance">GST Registration & Compliance</option><option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option><option value="Audit & Assurance">Audit & Assurance</option><option value="Financial Consulting">Financial Consulting</option></select></div>
-                <div class="form-group"><label for="Message">Message (Optional)</label><textarea id="Message" name="Message"></textarea></div>
-                <button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button>
+                <div class="form-group"><label for="Service">Service</label><select id="Service" name="Service" required>
+                    <option value="Trademark Registration">Trademark Registration</option>
+                    <option value="Income Tax Return Filing">Income Tax Return Filing</option>
+                    <option value="Company Registration">Company Registration</option>
+                    <option value="GST Registration & Compliance">GST Registration & Compliance</option>
+                    <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+                    <option value="Audit & Assurance">Audit & Assurance</option>
+                    <option value="Financial Consulting">Financial Consulting</option>
+                </select></div>
+                <div class="form-group full-width"><label for="Message">Message (Optional)</label><textarea id="Message" name="Message"></textarea></div>
+                <div class="form-group full-width">
+                    <button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button>
+                </div>
                 <div id="form-message"></div>
+
             </form>
         </div>
     </div>
-
-       <script>
+          <script>
         // --- Mobile Navigation ---
         const hamburger = document.querySelector('.hamburger'), 
               navLinks = document.querySelector('.nav-links'), 
@@ -386,7 +406,6 @@
         const closeModal = () => { 
             modal.classList.remove('active'); 
             body.classList.remove('no-scroll'); 
-            document.getElementById('form-message').textContent = ''; 
         };
 
         getStartedBtns.forEach(btn => btn.addEventListener('click', function() { 
@@ -398,50 +417,7 @@
             if (e.target === this) closeModal(); 
         });
 
-        // --- Google Sheet Form Submission ---
-        const form = document.getElementById('contact-form'), 
-              submitBtn = document.getElementById('form-submit-btn'), 
-              formMessage = document.getElementById('form-message');
-        
-        // IMPORTANT: Ensure this is the CORRECT Web App URL from a NEW deployment.
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw38Sfx0F8bxN_2AqqI2PXydx2FiM1gjaYxLaL4ieJ22NlIAOkaUhibVfZHbT7s_R6Lkw/exec';
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            formMessage.textContent = '';
-
-            fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form) })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                // If the response is not ok, it could be a network or CORS error
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                if (data.result === 'success') {
-                    formMessage.style.color = 'green';
-                    formMessage.textContent = 'Thank you! Your request has been sent.';
-                    form.reset();
-                    setTimeout(() => { closeModal(); }, 2500);
-                } else { 
-                    // This handles errors reported by the script itself
-                    throw new Error(data.error || 'An unknown script error occurred.'); 
-                }
-            })
-            .catch(error => { 
-                // This handles network errors and errors thrown above
-                formMessage.style.color = 'var(--error-red)';
-                formMessage.textContent = 'An error occurred. Please try again.'; 
-                console.error('Submission Error!', error); // Check browser console for details
-            })
-            .finally(() => { 
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-            });
-        });
+        // The form now submits on its own, so we don't need the complex fetch script.
     </script>
 </body>
 </html>
