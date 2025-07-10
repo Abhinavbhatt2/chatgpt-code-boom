@@ -10,14 +10,13 @@
     <style>
         /* CSS Reset and Basic Styles */
         :root {
-            --primary-blue: #2545b8;
+            --primary-blue: #335eea; /* UPDATED COLOR */
             --dark-blue: #1e2a3a;
             --primary-yellow: #fdb827;
             --light-grey: #f4f7fa;
             --text-dark: #333;
             --text-light: #f8f9fa;
             --border-color: #e2e8f0;
-            --error-red: #ef4444;
         }
 
         * {
@@ -60,9 +59,12 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
         .logo-container { display: flex; align-items: center; }
         .logo-img { height: 45px; width: auto; margin-right: 10px; }
+        .logo-text { font-weight: 600; font-size: 1rem; line-height: 1.2; }
+        .logo-text span { font-weight: 400; font-size: 0.8rem; color: #777; }
         .nav-links ul { display: flex; list-style: none; align-items: center; }
         .nav-links li { margin-left: 30px; }
         .nav-links a { font-weight: 500; padding-bottom: 5px; transition: color 0.3s ease, border-color 0.3s ease; border-bottom: 2px solid transparent; }
+        .nav-links a:hover { color: var(--primary-blue); }
         .nav-links a.active { color: var(--primary-blue); font-weight: 600; border-bottom-color: var(--primary-blue); }
         .hamburger { display: none; cursor: pointer; background: none; border: none; z-index: 1010; }
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--text-dark); transition: all 0.3s ease-in-out; }
@@ -71,48 +73,68 @@
 
         /* Hero Section */
         .hero { background-color: var(--primary-blue); color: var(--text-light); padding: 100px 0; text-align: center; }
+        .hero h1 { font-weight: 700; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
+        .cert-badges { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .badge { border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 20px; padding: 8px 20px; font-size: 0.9rem; background-color: rgba(255, 255, 255, 0.1); }
         .btn { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; border: none; }
-        .btn-primary { 
-            background-color: var(--primary-yellow); 
-            color: var(--text-dark); 
-            margin-top: 40px; /* FIXED: Added spacing */
-        }
-        
+        .btn-primary { background-color: var(--primary-yellow); color: var(--text-dark); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+
         /* Stats Section */
         .stats { padding: 80px 0; background-color: var(--light-grey); }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
         .stat-card { background: #fff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
         .stat-card .number { font-size: 3rem; font-weight: 700; margin-bottom: 5px; }
+        .stat-card .text { font-size: 1rem; color: #555; }
         .stat-card .number.blue { color: var(--primary-blue); }
+        .stat-card .number.green { color: #16a34a; }
+        .stat-card .number.red { color: #dc2626; }
         
         /* Services Section */
         .services { padding: 80px 0; }
         .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { margin-bottom: 10px; }
+        .section-header p { color: #666; max-width: 600px; margin: 0 auto; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color); border-left-width: 4px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
         .service-card .icon { margin-bottom: 20px; }
         .service-card .icon svg { width: 48px; height: 48px; }
+        .service-card h3 { margin-bottom: 10px; }
         .service-card .description { color: #666; font-size: 0.9rem; flex-grow: 1; }
         .card-footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .service-price .price-label { font-size: 0.8rem; color: #777; display: block; }
         .service-price .price-amount { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
         .btn-service { padding: 8px 18px; background-color: var(--primary-blue); color: #fff; border-radius: 6px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: background-color 0.3s ease; border: none; cursor: pointer; }
         .btn-service:hover { background-color: var(--dark-blue); }
+        .service-card-1 { border-left-color: #10b981; } .service-card-1 .icon svg { color: #10b981; }
+        .service-card-2 { border-left-color: #64748b; } .service-card-2 .icon svg { color: #64748b; }
+        .service-card-3 { border-left-color: #14b8a6; } .service-card-3 .icon svg { color: #14b8a6; }
+        .service-card-4 { border-left-color: #a16207; } .service-card-4 .icon svg { color: #a16207; }
+        .service-card-5 { border-left-color: #4f46e5; } .service-card-5 .icon svg { color: #4f46e5; }
+        .service-card-6 { border-left-color: #ef4444; } .service-card-6 .icon svg { color: #ef4444; }
+        .service-card-7 { border-left-color: #d97706; } .service-card-7 .icon svg { color: #d97706; }
         
         /* CTA Section */
         .cta { background-color: var(--primary-blue); color: var(--text-light); padding: 80px 0; text-align: center; }
-        
+        .cta h2 { margin-bottom: 10px; }
+        .cta p { margin-bottom: 30px; font-size: 1.1rem; }
+
         /* Footer */
         .footer { background-color: var(--dark-blue); color: #ccc; padding: 60px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; }
-        .footer .logo-img { width: 150px; margin-bottom: 15px; filter: brightness(0) invert(1); }
-        .footer-badges {
-            display: flex;
-            flex-wrap: wrap; /* FIXED: Allows badges to wrap to the next line */
-            gap: 10px; /* FIXED: Adds space between badges */
+        .footer .logo-img { 
+            width: 150px; 
+            margin-bottom: 15px; 
+             /* FIXED: This makes the dark parts of the logo white */
         }
+        .footer-badges .badge { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); margin-right: 10px; margin-bottom: 10px; display: inline-block; }
+        .footer h3 { color: var(--text-light); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: #ccc; transition: color 0.3s ease; }
+        .footer a:hover { color: var(--primary-yellow); }
         .contact-item { display: flex; align-items: flex-start; }
         .contact-item svg { width: 20px; height: 20px; margin-right: 15px; color: var(--primary-yellow); flex-shrink: 0; margin-top: 4px; }
         
@@ -121,35 +143,69 @@
         .modal-overlay.active { display: flex; }
         .modal-content { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); width: 90%; max-width: 500px; position: relative; }
         .close-btn { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: #aaa; background: none; border: none; cursor: pointer; }
-        .modal-content h3 { margin-bottom: 25px; text-align: center; font-size: 1.8rem; font-weight: 600; }
-        .form-group { display: grid; grid-template-columns: 120px 1fr; align-items: center; margin-bottom: 20px; }
-        .form-group label { font-weight: 500; padding-right: 15px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; background-color: #f0f4ff; }
-        .form-group.full-width { grid-template-columns: 1fr; }
-        .form-group.full-width label { margin-bottom: 8px; }
-        .form-group textarea { resize: vertical; min-height: 80px; }
-        .form-submit-btn { width: 100%; padding: 14px; background: var(--primary-blue); color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; margin-top: 10px; }
+        .modal-content h3 { margin-bottom: 20px; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit-btn { width: 100%; padding: 14px; background: var(--primary-blue); color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
         .form-submit-btn:hover { background: var(--dark-blue); }
         .form-submit-btn:disabled { background: #ccc; cursor: not-allowed; }
-        #form-message { margin-top: 15px; text-align: center; font-weight: 500; font-size: 1rem; color: var(--error-red); }
-        
+        #form-message { margin-top: 15px; text-align: center; font-weight: 500; }
+
         /* Responsive */
         @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; } h3 { font-size: 1.1rem; }
             .logo-text { display: none; } 
+            
+            /* --- MOBILE NAVIGATION FIXES --- */
             .hamburger { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: #fff; z-index: 1005; box-shadow: -2px 0 5px rgba(0,0,0,0.1); transition: right 0.35s ease-in-out; padding-top: 100px; }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
+            .nav-links { 
+                position: fixed; 
+                top: 0; 
+                right: -100%; 
+                width: 70%; 
+                max-width: 300px; 
+                height: 100vh; 
+                background-color: #fff; 
+                z-index: 1005; 
+                box-shadow: -2px 0 5px rgba(0,0,0,0.1); 
+                transition: right 0.35s ease-in-out; 
+                padding-top: 100px; 
+            }
             .nav-links.active { right: 0; }
-            .nav-links ul { flex-direction: column; align-items: flex-start; width: 100%; }
-            .nav-links li { margin: 0; width: 100%; }
-            .nav-links a { display: block; padding: 15px 30px; width: 100%; border-bottom: 1px solid var(--border-color); }
-            .nav-links a.active { border-left: 4px solid var(--primary-blue); border-bottom: 1px solid var(--border-color); }
-            .stats-grid, .footer-grid { grid-template-columns: 1fr; }
-            .footer-grid { text-align: center; }
+
+            .nav-links ul { 
+                flex-direction: column; /* This is the key fix: stack links vertically */
+                align-items: flex-start;
+                width: 100%;
+            }
+            .nav-links li { 
+                margin: 0; 
+                width: 100%;
+            }
+            .nav-links a { 
+                display: block; /* Make links take full width for easier tapping */
+                padding: 15px 30px; 
+                width: 100%;
+                border-bottom: 1px solid var(--border-color);
+            }
+             .nav-links a.active {
+                border-left: 4px solid var(--primary-blue);
+                border-bottom: 1px solid var(--border-color); /* Override desktop style */
+            }
+            /* --- END MOBILE NAVIGATION FIXES --- */
+
+            .hero, .stats, .services, .cta, .footer { padding: 60px 0; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer .logo-img { margin-left: auto; margin-right: auto; }
-            .footer-badges { justify-content: center; } /* Centers the wrapped badges on mobile */
+            .footer-badges { display: flex; flex-direction: column; align-items: center; gap: 10px; }
             .contact-item { justify-content: center; text-align: left; }
-            .form-group { grid-template-columns: 1fr; }
-            .form-group label { margin-bottom: 8px; }
         }
     </style>
 </head>
@@ -182,7 +238,11 @@
             <div class="container">
                 <h1>iBLE BOOM SERVICES PVT LTD</h1>
                 <p>Your Trusted Partner for Complete CA & Financial Services</p>
-                <div class="cert-badges"><span class="badge">MSME Certified</span><span class="badge">Startup India Certified</span><span class="badge">DPIT Recognised</span></div>
+                <div class="cert-badges">
+                    <span class="badge">MSME Certified</span>
+                    <span class="badge">Startup India Certified</span>
+                    <span class="badge">DPIT Recognised</span>
+                </div>
                 <a href="#" class="btn btn-primary">Get Expert Consultation</a>
             </div>
         </section>
@@ -272,62 +332,92 @@
         </div>
     </footer>
 
-    <!-- Popup Modal -->
+      <!-- Popup Modal UPDATED FOR WEB3FORMS -->
     <div class="modal-overlay" id="popup-modal">
         <div class="modal-content">
             <button class="close-btn" id="close-modal-btn">×</button>
             <h3>Get Started</h3>
-            <form id="contact-form">
+            
+            <!-- The <form> tag is the most important change -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+
+                <!-- This is your Access Key. REPLACE THE VALUE with the key you received in your email -->
+                <input type="hidden" name="access_key" value="e53be3db-8b75-48a6-8cbf-230108b8231d">
+
+                <!-- Optional: Customize the email subject you receive -->
+                <input type="hidden" name="subject" value="New Inquiry from iBLE Boom Website">
+                <input type="hidden" name="from_name" value="iBLE Boom Services">
+                
                 <div class="form-group"><label for="FullName">Full Name</label><input type="text" id="FullName" name="FullName" required></div>
                 <div class="form-group"><label for="Email">Email Address</label><input type="email" id="Email" name="Email" required></div>
                 <div class="form-group"><label for="Phone">Phone Number</label><input type="tel" id="Phone" name="Phone" required></div>
-                <div class="form-group"><label for="Service">Service</label><select id="Service" name="Service" required><option value="Trademark Registration">Trademark Registration</option><option value="Income Tax Return Filing">Income Tax Return Filing</option><option value="Company Registration">Company Registration</option><option value="GST Registration & Compliance">GST Registration & Compliance</option><option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option><option value="Audit & Assurance">Audit & Assurance</option><option value="Financial Consulting">Financial Consulting</option></select></div>
+                <div class="form-group"><label for="Service">Service</label><select id="Service" name="Service" required>
+                    <option value="Trademark Registration">Trademark Registration</option>
+                    <option value="Income Tax Return Filing">Income Tax Return Filing</option>
+                    <option value="Company Registration">Company Registration</option>
+                    <option value="GST Registration & Compliance">GST Registration & Compliance</option>
+                    <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+                    <option value="Audit & Assurance">Audit & Assurance</option>
+                    <option value="Financial Consulting">Financial Consulting</option>
+                </select></div>
                 <div class="form-group full-width"><label for="Message">Message (Optional)</label><textarea id="Message" name="Message"></textarea></div>
-                <div class="form-group full-width"><button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button></div>
+                <div class="form-group full-width">
+                    <button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button>
+                </div>
                 <div id="form-message"></div>
+
             </form>
         </div>
     </div>
+          <script>
+        // --- Mobile Navigation ---
+        const hamburger = document.querySelector('.hamburger'), 
+              navLinks = document.querySelector('.nav-links'), 
+              navOverlay = document.querySelector('.nav-overlay'), 
+              links = document.querySelectorAll('.nav-links li a'), 
+              body = document.querySelector('body');
 
-    <script>
-        const hamburger = document.querySelector('.hamburger'), navLinks = document.querySelector('.nav-links'), navOverlay = document.querySelector('.nav-overlay'), links = document.querySelectorAll('.nav-links li a'), body = document.querySelector('body');
-        const closeMenu = () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); navOverlay.classList.remove('active'); body.classList.remove('no-scroll'); };
-        hamburger.addEventListener('click', () => { hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); });
+        const closeMenu = () => { 
+            hamburger.classList.remove('active'); 
+            navLinks.classList.remove('active'); 
+            navOverlay.classList.remove('active'); 
+            body.classList.remove('no-scroll'); 
+        };
+
+        hamburger.addEventListener('click', () => { 
+            hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); 
+        });
+
         navOverlay.addEventListener('click', closeMenu);
         links.forEach(link => link.addEventListener('click', closeMenu));
-        const modal = document.getElementById('popup-modal'), closeModalBtn = document.getElementById('close-modal-btn'), getStartedBtns = document.querySelectorAll('.btn-service'), serviceSelect = document.getElementById('Service');
-        const openModal = serviceName => { serviceSelect.value = serviceName; modal.classList.add('active'); body.classList.add('no-scroll'); };
-        const closeModal = () => { modal.classList.remove('active'); body.classList.remove('no-scroll'); document.getElementById('form-message').textContent = ''; };
-        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { openModal(this.getAttribute('data-service')); }));
+
+        // --- Popup Modal Logic ---
+        const modal = document.getElementById('popup-modal'), 
+              closeModalBtn = document.getElementById('close-modal-btn'), 
+              getStartedBtns = document.querySelectorAll('.btn-service'), 
+              serviceSelect = document.getElementById('Service');
+        
+        const openModal = serviceName => { 
+            serviceSelect.value = serviceName; 
+            modal.classList.add('active'); 
+            body.classList.add('no-scroll'); 
+        };
+        
+        const closeModal = () => { 
+            modal.classList.remove('active'); 
+            body.classList.remove('no-scroll'); 
+        };
+
+        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { 
+            openModal(this.getAttribute('data-service')); 
+        }));
+
         closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-        const form = document.getElementById('contact-form'), submitBtn = document.getElementById('form-submit-btn'), formMessage = document.getElementById('form-message');
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw38Sfx0F8bxN_2AqqI2PXydx2FiM1gjaYxLaL4ieJ22NlIAOkaUhibVfZHbT7s_R6Lkw/exec';
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            formMessage.textContent = '';
-            fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form) })
-            .then(res => res.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    formMessage.style.color = 'green';
-                    formMessage.textContent = 'Thank you! Your request has been sent.';
-                    form.reset();
-                    setTimeout(() => { closeModal(); }, 2500);
-                } else { throw new Error(data.error || 'An unknown error occurred.'); }
-            })
-            .catch(error => { 
-                formMessage.style.color = 'var(--error-red)';
-                formMessage.textContent = 'An error occurred. Please try again.'; 
-                console.error('Error!', error);
-            })
-            .finally(() => { 
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-            });
+        modal.addEventListener('click', function(e) { 
+            if (e.target === this) closeModal(); 
         });
+
+        // The form now submits on its own, so we don't need the complex fetch script.
     </script>
 </body>
 </html>
