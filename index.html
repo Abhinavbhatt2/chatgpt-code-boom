@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBLE BOOM SERVICES PVT LTD - Final Website</title>
+    <title>iBLE BOOM SERVICES PVT LTD - Updated Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* CSS Reset and Basic Styles */
         :root {
-            --primary-blue: #335eea; /* UPDATED COLOR */
+            --primary-blue: #2545b8;
             --dark-blue: #1e2a3a;
             --primary-yellow: #fdb827;
             --light-grey: #f4f7fa;
             --text-dark: #333;
             --text-light: #f8f9fa;
             --border-color: #e2e8f0;
+            --error-red: #ef4444;
         }
 
         * {
@@ -59,12 +60,9 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
         .logo-container { display: flex; align-items: center; }
         .logo-img { height: 45px; width: auto; margin-right: 10px; }
-        .logo-text { font-weight: 600; font-size: 1rem; line-height: 1.2; }
-        .logo-text span { font-weight: 400; font-size: 0.8rem; color: #777; }
         .nav-links ul { display: flex; list-style: none; align-items: center; }
         .nav-links li { margin-left: 30px; }
         .nav-links a { font-weight: 500; padding-bottom: 5px; transition: color 0.3s ease, border-color 0.3s ease; border-bottom: 2px solid transparent; }
-        .nav-links a:hover { color: var(--primary-blue); }
         .nav-links a.active { color: var(--primary-blue); font-weight: 600; border-bottom-color: var(--primary-blue); }
         .hamburger { display: none; cursor: pointer; background: none; border: none; z-index: 1010; }
         .hamburger .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--text-dark); transition: all 0.3s ease-in-out; }
@@ -73,41 +71,33 @@
 
         /* Hero Section */
         .hero { background-color: var(--primary-blue); color: var(--text-light); padding: 100px 0; text-align: center; }
-        .hero h1 { font-weight: 700; margin-bottom: 15px; }
-        .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
-        .cert-badges { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .badge { border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 20px; padding: 8px 20px; font-size: 0.9rem; background-color: rgba(255, 255, 255, 0.1); }
         .btn { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; border: none; }
-        .btn-primary { background-color: var(--primary-yellow); color: var(--text-dark); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
-
+        .btn-primary { background-color: var(--primary-yellow); color: var(--text-dark); margin-top: 40px; }
+        
         /* Stats Section */
         .stats { padding: 80px 0; background-color: var(--light-grey); }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
         .stat-card { background: #fff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
         .stat-card .number { font-size: 3rem; font-weight: 700; margin-bottom: 5px; }
-        .stat-card .text { font-size: 1rem; color: #555; }
         .stat-card .number.blue { color: var(--primary-blue); }
-        .stat-card .number.green { color: #16a34a; }
-        .stat-card .number.red { color: #dc2626; }
         
         /* Services Section */
         .services { padding: 80px 0; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { margin-bottom: 10px; }
-        .section-header p { color: #666; max-width: 600px; margin: 0 auto; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border: 1px solid var(--border-color); border-left-width: 4px; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column;}
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
         .service-card .icon { margin-bottom: 20px; }
         .service-card .icon svg { width: 48px; height: 48px; }
-        .service-card h3 { margin-bottom: 10px; }
         .service-card .description { color: #666; font-size: 0.9rem; flex-grow: 1; }
         .card-footer { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .service-price .price-label { font-size: 0.8rem; color: #777; display: block; }
         .service-price .price-amount { font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
         .btn-service { padding: 8px 18px; background-color: var(--primary-blue); color: #fff; border-radius: 6px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: background-color 0.3s ease; border: none; cursor: pointer; }
         .btn-service:hover { background-color: var(--dark-blue); }
+
+        /* Service Card Colors */
         .service-card-1 { border-left-color: #10b981; } .service-card-1 .icon svg { color: #10b981; }
         .service-card-2 { border-left-color: #64748b; } .service-card-2 .icon svg { color: #64748b; }
         .service-card-3 { border-left-color: #14b8a6; } .service-card-3 .icon svg { color: #14b8a6; }
@@ -115,26 +105,17 @@
         .service-card-5 { border-left-color: #4f46e5; } .service-card-5 .icon svg { color: #4f46e5; }
         .service-card-6 { border-left-color: #ef4444; } .service-card-6 .icon svg { color: #ef4444; }
         .service-card-7 { border-left-color: #d97706; } .service-card-7 .icon svg { color: #d97706; }
+        .service-card-8 { border-left-color: #0891b2; } .service-card-8 .icon svg { color: #0891b2; } /* MSME */
+        .service-card-9 { border-left-color: #6d28d9; } .service-card-9 .icon svg { color: #6d28d9; } /* DPIIT */
         
         /* CTA Section */
         .cta { background-color: var(--primary-blue); color: var(--text-light); padding: 80px 0; text-align: center; }
-        .cta h2 { margin-bottom: 10px; }
-        .cta p { margin-bottom: 30px; font-size: 1.1rem; }
-
+        
         /* Footer */
         .footer { background-color: var(--dark-blue); color: #ccc; padding: 60px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; }
-        .footer .logo-img { 
-            width: 150px; 
-            margin-bottom: 15px; 
-             /* FIXED: This makes the dark parts of the logo white */
-        }
-        .footer-badges .badge { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); margin-right: 10px; margin-bottom: 10px; display: inline-block; }
-        .footer h3 { color: var(--text-light); margin-bottom: 20px; font-size: 1.2rem; }
-        .footer ul { list-style: none; }
-        .footer ul li { margin-bottom: 12px; }
-        .footer a { color: #ccc; transition: color 0.3s ease; }
-        .footer a:hover { color: var(--primary-yellow); }
+        .footer .logo-img { width: 150px; margin-bottom: 15px; filter: brightness(0) invert(1); }
+        .footer-badges { display: flex; flex-wrap: wrap; gap: 10px; }
         .contact-item { display: flex; align-items: flex-start; }
         .contact-item svg { width: 20px; height: 20px; margin-right: 15px; color: var(--primary-yellow); flex-shrink: 0; margin-top: 4px; }
         
@@ -143,69 +124,35 @@
         .modal-overlay.active { display: flex; }
         .modal-content { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); width: 90%; max-width: 500px; position: relative; }
         .close-btn { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: #aaa; background: none; border: none; cursor: pointer; }
-        .modal-content h3 { margin-bottom: 20px; text-align: center; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .form-submit-btn { width: 100%; padding: 14px; background: var(--primary-blue); color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
+        .modal-content h3 { margin-bottom: 25px; text-align: center; font-size: 1.8rem; font-weight: 600; }
+        .form-group { display: grid; grid-template-columns: 120px 1fr; align-items: center; margin-bottom: 20px; }
+        .form-group label { font-weight: 500; padding-right: 15px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 1rem; background-color: #f0f4ff; }
+        .form-group.full-width { grid-template-columns: 1fr; }
+        .form-group.full-width label { margin-bottom: 8px; }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .form-submit-btn { width: 100%; padding: 14px; background: var(--primary-blue); color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; margin-top: 10px; }
         .form-submit-btn:hover { background: var(--dark-blue); }
         .form-submit-btn:disabled { background: #ccc; cursor: not-allowed; }
-        #form-message { margin-top: 15px; text-align: center; font-weight: 500; }
-
+        #form-message { margin-top: 15px; text-align: center; font-weight: 500; font-size: 1rem; color: var(--error-red); }
+        
         /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; } h2 { font-size: 1.8rem; } h3 { font-size: 1.1rem; }
             .logo-text { display: none; } 
-            
-            /* --- MOBILE NAVIGATION FIXES --- */
             .hamburger { display: block; }
-            .hamburger.active .bar:nth-child(2) { opacity: 0; }
-            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            
-            .nav-links { 
-                position: fixed; 
-                top: 0; 
-                right: -100%; 
-                width: 70%; 
-                max-width: 300px; 
-                height: 100vh; 
-                background-color: #fff; 
-                z-index: 1005; 
-                box-shadow: -2px 0 5px rgba(0,0,0,0.1); 
-                transition: right 0.35s ease-in-out; 
-                padding-top: 100px; 
-            }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: #fff; z-index: 1005; box-shadow: -2px 0 5px rgba(0,0,0,0.1); transition: right 0.35s ease-in-out; padding-top: 100px; }
             .nav-links.active { right: 0; }
-
-            .nav-links ul { 
-                flex-direction: column; /* This is the key fix: stack links vertically */
-                align-items: flex-start;
-                width: 100%;
-            }
-            .nav-links li { 
-                margin: 0; 
-                width: 100%;
-            }
-            .nav-links a { 
-                display: block; /* Make links take full width for easier tapping */
-                padding: 15px 30px; 
-                width: 100%;
-                border-bottom: 1px solid var(--border-color);
-            }
-             .nav-links a.active {
-                border-left: 4px solid var(--primary-blue);
-                border-bottom: 1px solid var(--border-color); /* Override desktop style */
-            }
-            /* --- END MOBILE NAVIGATION FIXES --- */
-
-            .hero, .stats, .services, .cta, .footer { padding: 60px 0; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .nav-links ul { flex-direction: column; align-items: flex-start; width: 100%; }
+            .nav-links li { margin: 0; width: 100%; }
+            .nav-links a { display: block; padding: 15px 30px; width: 100%; border-bottom: 1px solid var(--border-color); }
+            .nav-links a.active { border-left: 4px solid var(--primary-blue); border-bottom: 1px solid var(--border-color); }
+            .stats-grid, .footer-grid { grid-template-columns: 1fr; }
+            .footer-grid { text-align: center; }
             .footer .logo-img { margin-left: auto; margin-right: auto; }
-            .footer-badges { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+            .footer-badges { justify-content: center; }
             .contact-item { justify-content: center; text-align: left; }
+            .form-group { grid-template-columns: 1fr; }
+            .form-group label { margin-bottom: 8px; }
         }
     </style>
 </head>
@@ -220,7 +167,7 @@
                 </a>
                 <div class="nav-links">
                     <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
+                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="Services.html">Services</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="https://ibleboom.com/blog/">Blog</a></li>
@@ -238,12 +185,8 @@
             <div class="container">
                 <h1>iBLE BOOM SERVICES PVT LTD</h1>
                 <p>Your Trusted Partner for Complete CA & Financial Services</p>
-                <div class="cert-badges">
-                    <span class="badge">MSME Certified</span>
-                    <span class="badge">Startup India Certified</span>
-                    <span class="badge">DPIT Recognised</span>
-                </div>
-                <a href="contact.html" class="btn btn-primary">Get Expert Consultation</a>
+                <div class="cert-badges"><span class="badge">MSME Certified</span><span class="badge">Startup India Certified</span><span class="badge">DPIT Recognised</span></div>
+                <a href="#" class="btn btn-primary">Get Expert Consultation</a>
             </div>
         </section>
 
@@ -264,22 +207,32 @@
                     <div class="service-card service-card-7">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 9.5h3a1.5 1.5 0 011.5 1.5v0a1.5 1.5 0 01-1.5 1.5h-3v-3zm0 3v2.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12.5L15 15" /></svg></div>
                         <h3>Trademark Registration</h3><p class="description">Protect your brand identity and intellectual property with our expert registration services.</p>
-                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹5499/-</span></div><button class="btn btn-service" data-service="Trademark Registration">Get Started</button></div>
+                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹5999/-</span></div><button class="btn btn-service" data-service="Trademark Registration">Get Started</button></div>
                     </div>
-                    <div class="service-card service-card-1">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg></div>
-                        <h3>Income Tax Return Filing</h3><p class="description">Simplify your tax obligations and ensure compliance with our expert income tax return filing services.</p>
-                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹999/-</span></div><button class="btn btn-service" data-service="Income Tax Return Filing">Get Started</button></div>
-                    </div>
-                    <div class="service-card service-card-3">
+                     <div class="service-card service-card-3">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM9 3.75H6.75A2.25 2.25 0 0 0 4.5 6v12a2.25 2.25 0 0 0 2.25 2.25h10.5A2.25 2.25 0 0 0 19.5 18V6A2.25 2.25 0 0 0 17.25 3.75H15M12 3v12" /></svg></div>
                         <h3>Company Registration</h3><p class="description">Establish your business legally and efficiently with our comprehensive company registration assistance.</p>
-                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹8999/-</span></div><button class="btn btn-service" data-service="Company Registration">Get Started</button></div>
+                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹10999/-</span></div><button class="btn btn-service" data-service="Company Registration">Get Started</button></div>
+                    </div>
+                    <div class="service-card service-card-8">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M3.75 6.75h.75m-.75 4.5h.75m-.75 4.5h.75m14.25-13.5h.75m-.75 4.5h.75m-.75 4.5h.75" /></svg></div>
+                        <h3>MSME Registration</h3><p class="description">Get your business officially recognized as a Micro, Small, or Medium Enterprise to avail government benefits.</p>
+                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹1499/-</span></div><button class="btn btn-service" data-service="MSME Registration">Get Started</button></div>
+                    </div>
+                     <div class="service-card service-card-9">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-2.474-1.75-1.706 2.562-.373L12 9.75l1.125 2.281 2.562.373-1.75 1.706.57 2.474-2.51-2.225z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <h3>DPIIT Registration</h3><p class="description">Register your startup under the DPIIT scheme to access tax exemptions and other exclusive benefits.</p>
+                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹5999/-</span></div><button class="btn btn-service" data-service="DPIIT Registration">Get Started</button></div>
                     </div>
                     <div class="service-card service-card-2">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /><text x="12" y="16" font-size="4" font-family="Poppins" font-weight="bold" fill="currentColor" text-anchor="middle">GST</text></svg></div>
                         <h3>GST Registration & Compliance</h3><p class="description">Navigate the complexities of GST with our seamless registration and compliance solutions.</p>
                         <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹1999/-</span></div><button class="btn btn-service" data-service="GST Registration & Compliance">Get Started</button></div>
+                    </div>
+                    <div class="service-card service-card-1">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg></div>
+                        <h3>Income Tax Return Filing</h3><p class="description">Simplify your tax obligations and ensure compliance with our expert income tax return filing services.</p>
+                        <div class="card-footer"><div class="service-price"><span class="price-label">Starting at</span><span class="price-amount">₹999/-</span></div><button class="btn btn-service" data-service="Income Tax Return Filing">Get Started</button></div>
                     </div>
                     <div class="service-card service-card-4">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.65H8.228a3.375 3.375 0 0 0-3.285 2.65l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5 0h.008v.008h-.008v-.008Zm-3 0h.008v.008h-.008v-.008Z" /></svg></div>
@@ -332,92 +285,52 @@
         </div>
     </footer>
 
-      <!-- Popup Modal UPDATED FOR WEB3FORMS -->
+    <!-- Popup Modal -->
     <div class="modal-overlay" id="popup-modal">
         <div class="modal-content">
             <button class="close-btn" id="close-modal-btn">×</button>
             <h3>Get Started</h3>
-            
-            <!-- The <form> tag is the most important change -->
             <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-
-                <!-- This is your Access Key. REPLACE THE VALUE with the key you received in your email -->
-                <input type="hidden" name="access_key" value="e53be3db-8b75-48a6-8cbf-230108b8231d">
-
-                <!-- Optional: Customize the email subject you receive -->
+                <!-- IMPORTANT: Replace with your actual Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="New Inquiry from iBLE Boom Website">
                 <input type="hidden" name="from_name" value="iBLE Boom Services">
-                
+
                 <div class="form-group"><label for="FullName">Full Name</label><input type="text" id="FullName" name="FullName" required></div>
                 <div class="form-group"><label for="Email">Email Address</label><input type="email" id="Email" name="Email" required></div>
                 <div class="form-group"><label for="Phone">Phone Number</label><input type="tel" id="Phone" name="Phone" required></div>
-                <div class="form-group"><label for="Service">Service</label><select id="Service" name="Service" required>
-                    <option value="Trademark Registration">Trademark Registration</option>
-                    <option value="Income Tax Return Filing">Income Tax Return Filing</option>
-                    <option value="Company Registration">Company Registration</option>
-                    <option value="GST Registration & Compliance">GST Registration & Compliance</option>
-                    <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
-                    <option value="Audit & Assurance">Audit & Assurance</option>
-                    <option value="Financial Consulting">Financial Consulting</option>
-                </select></div>
-                <div class="form-group full-width"><label for="Message">Message (Optional)</label><textarea id="Message" name="Message"></textarea></div>
-                <div class="form-group full-width">
-                    <button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button>
+                <div class="form-group"><label for="Service">Service</label>
+                    <select id="Service" name="Service" required>
+                        <option value="Trademark Registration">Trademark Registration</option>
+                        <option value="Company Registration">Company Registration</option>
+                        <option value="MSME Registration">MSME Registration</option>
+                        <option value="DPIIT Registration">DPIIT Registration</option>
+                        <option value="GST Registration & Compliance">GST Registration & Compliance</option>
+                        <option value="Income Tax Return Filing">Income Tax Return Filing</option>
+                        <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+                        <option value="Audit & Assurance">Audit & Assurance</option>
+                        <option value="Financial Consulting">Financial Consulting</option>
+                    </select>
                 </div>
+                <div class="form-group full-width"><label for="Message">Message (Optional)</label><textarea id="Message" name="Message"></textarea></div>
+                <div class="form-group full-width"><button type="submit" class="form-submit-btn" id="form-submit-btn">Submit</button></div>
                 <div id="form-message"></div>
-
             </form>
         </div>
     </div>
-          <script>
-        // --- Mobile Navigation ---
-        const hamburger = document.querySelector('.hamburger'), 
-              navLinks = document.querySelector('.nav-links'), 
-              navOverlay = document.querySelector('.nav-overlay'), 
-              links = document.querySelectorAll('.nav-links li a'), 
-              body = document.querySelector('body');
 
-        const closeMenu = () => { 
-            hamburger.classList.remove('active'); 
-            navLinks.classList.remove('active'); 
-            navOverlay.classList.remove('active'); 
-            body.classList.remove('no-scroll'); 
-        };
-
-        hamburger.addEventListener('click', () => { 
-            hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); 
-        });
-
+    <script>
+        const hamburger = document.querySelector('.hamburger'), navLinks = document.querySelector('.nav-links'), navOverlay = document.querySelector('.nav-overlay'), links = document.querySelectorAll('.nav-links li a'), body = document.querySelector('body');
+        const closeMenu = () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); navOverlay.classList.remove('active'); body.classList.remove('no-scroll'); };
+        hamburger.addEventListener('click', () => { hamburger.classList.contains('active') ? closeMenu() : (hamburger.classList.add('active'), navLinks.classList.add('active'), navOverlay.classList.add('active'), body.classList.add('no-scroll')); });
         navOverlay.addEventListener('click', closeMenu);
         links.forEach(link => link.addEventListener('click', closeMenu));
-
-        // --- Popup Modal Logic ---
-        const modal = document.getElementById('popup-modal'), 
-              closeModalBtn = document.getElementById('close-modal-btn'), 
-              getStartedBtns = document.querySelectorAll('.btn-service'), 
-              serviceSelect = document.getElementById('Service');
-        
-        const openModal = serviceName => { 
-            serviceSelect.value = serviceName; 
-            modal.classList.add('active'); 
-            body.classList.add('no-scroll'); 
-        };
-        
-        const closeModal = () => { 
-            modal.classList.remove('active'); 
-            body.classList.remove('no-scroll'); 
-        };
-
-        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { 
-            openModal(this.getAttribute('data-service')); 
-        }));
-
+        const modal = document.getElementById('popup-modal'), closeModalBtn = document.getElementById('close-modal-btn'), getStartedBtns = document.querySelectorAll('.btn-service'), serviceSelect = document.getElementById('Service');
+        const openModal = serviceName => { serviceSelect.value = serviceName; modal.classList.add('active'); body.classList.add('no-scroll'); };
+        const closeModal = () => { modal.classList.remove('active'); body.classList.remove('no-scroll'); };
+        getStartedBtns.forEach(btn => btn.addEventListener('click', function() { openModal(this.getAttribute('data-service')); }));
         closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) { 
-            if (e.target === this) closeModal(); 
-        });
-
-        // The form now submits on its own, so we don't need the complex fetch script.
+        modal.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
     </script>
 </body>
 </html>
